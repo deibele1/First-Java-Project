@@ -1,4 +1,10 @@
-<html>
-<app-login-component>
-</app-login-component>
-</html>
+<div id="app-root" *ngIf="!getLoggedIn()">
+    <app-login-component>
+
+    </app-login-component>
+</div>
+<div id="app-root" *ngIf="getLoggedIn()">
+    <app-home>
+
+    </app-home>
+</div>

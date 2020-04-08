@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
+  private loggedIn: boolean = false;
+
+  getLoggedIn() {
+    return this.loggedIn;
+  }
+
+  setLoggedIn(value: boolean) {
+    this.loggedIn = value;
+  }
 }
