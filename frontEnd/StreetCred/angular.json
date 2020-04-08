@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "StreetCred": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "StreetCred"
+    }
+  },
+  "defaultProject": "StreetCred",
+  "cli": {
+    "analytics": "c7779e02-7f05-4952-a1a0-f7b66d298d74"
+  }
 }

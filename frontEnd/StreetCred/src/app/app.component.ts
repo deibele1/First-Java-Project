@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'StreetCred';
+  
+  private loggedIn: boolean = false;
+
+  getLoggedIn() {
+    return this.loggedIn;
+  }
+
+  setLoggedIn(value: boolean) {
+    this.loggedIn = value;
+  }
 }
