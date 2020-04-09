@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+  
+import { Component } from '@angular/core';
 import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
@@ -6,17 +7,12 @@ import { LoginComponent } from 'src/app/login/login.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   
   private loggedIn: boolean = false;
-  constructor(public login :LoginComponent) { }
-
-  ngOnInit(): void {
-    this.getLoggedIn();
-  }
 
   getLoggedIn() {
-    return this.login.loggedIn;
+    return LoginComponent.loggedIn;
   }
 
   setLoggedIn(value: boolean) {
