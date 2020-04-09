@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  static loggedIn:boolean = false;
 
   constructor() { }
   username:string;
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   submit() {
     console.log(this.username + " " + this.password);
+    LoginComponent.loggedIn = true;
   }
 
 }

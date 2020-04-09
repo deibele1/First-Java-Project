@@ -1,5 +1,5 @@
 <div id="app-root" *ngIf="!getLoggedIn()">
-    <app-login-component>
+    <app-login-component *ngIf="!getLoggedIn()">
 
     </app-login-component>
 </div>

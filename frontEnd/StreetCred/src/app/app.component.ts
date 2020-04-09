@@ -1,4 +1,6 @@
+  
 import { Component } from '@angular/core';
+import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ export class AppComponent {
   private loggedIn: boolean = false;
 
   getLoggedIn() {
-    return this.loggedIn;
+    return LoginComponent.loggedIn;
   }
 
   setLoggedIn(value: boolean) {
