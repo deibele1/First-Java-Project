@@ -15,11 +15,13 @@ public class User {
 	private LocalDate u_dob;
 	private LocalDate u_doac;
 	private int u_cs;
-	
+
+	// No argument constructor
 	public User() {
 		super();
 	}
 
+	// Full Argument constructor constructor
 	public User(String u_username, long u_password, short u_type, String u_first, String u_middle, String u_last,
 			String u_email, LocalDate u_dob, LocalDate u_doac, int u_cs) {
 		super();
@@ -35,6 +37,8 @@ public class User {
 		this.u_cs = u_cs;
 	}
 
+	
+	// Setters and Getters
 	public String getU_username() {
 		return u_username;
 	}
@@ -115,6 +119,7 @@ public class User {
 		this.u_cs = u_cs;
 	}
 
+	// To string
 	@Override
 	public String toString() {
 		return "User [u_username=" + u_username + ", u_password=" + u_password + ", u_type=" + u_type + ", u_first="
