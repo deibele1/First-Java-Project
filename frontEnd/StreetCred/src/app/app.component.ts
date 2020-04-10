@@ -1,6 +1,7 @@
   
 import { Component } from '@angular/core';
 import { LoginComponent } from 'src/app/login/login.component';
+import { HomeComponent } from 'src/app/home/home.component';
 
 @Component({
   selector: 'app-root',
