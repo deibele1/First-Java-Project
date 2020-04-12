@@ -15,7 +15,7 @@ public class AdminUsers implements Persistant{
     @GeneratedValue
     private Integer adminId;
     @OneToOne
-    private UserMasterTable BasicAccount;
+    private UserMasterTable basicAccount;
     private Date adminDate;
     @Enumerated
     public Mode currentMode;
@@ -38,6 +38,6 @@ public class AdminUsers implements Persistant{
      * @return the basicAccount
      */
     public UserMasterTable getBasicAccount() {
-        return BasicAccount;
+        return basicAccount;
     }
 }

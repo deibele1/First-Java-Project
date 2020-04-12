@@ -12,9 +12,9 @@ public class Prediction implements Persistant{
 	public Prediction(){super();}
 	// Field Variables
 	@Id
-	private int PredictionId;
+	private int predictionId;
 	@ManyToOne
-	private Event PredictedEvent;
+	private Event predictedEvent;
 	@ManyToOne
 	private UserMasterTable predictingUser;
 	private Date dateOfPrediction;
@@ -30,7 +30,7 @@ public class Prediction implements Persistant{
 	 * @return the predictedEvent
 	 */
 	public Event getPredictedEvent() {
-		return PredictedEvent;
+		return predictedEvent;
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class Prediction implements Persistant{
 	 * @return the predictionId
 	 */
 	public int getPredictionId() {
-		return PredictionId;
+		return predictionId;
 	}
 	
 }
