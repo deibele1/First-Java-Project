@@ -1,77 +1,88 @@
 package dev.deathstarreactorcore.beans;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
-public class Event {
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+
+@Entity
+public class Event implements Persistant{
+	public Event(UserMasterTable creator, Category cat, Date advent, String description2, String eventName) {
+		this.creator = creator;
+		this.eventCategory = cat;
+		this.advent = advent;
+		this.eventName = eventName;
+	}
+
+	public Event(){super();}
 
 	// Field variables
-	private int e_id;
-	private int e_name;
-	private LocalDate e_adVent;
-	private LocalDate e_adDate;
-	private int e_c_id;
-	
-	// No argument constructor
-	public Event() {
-		super();
-	}
-	
-	// Full argument constructor
-	public Event(int e_id, int e_name, LocalDate e_adVent, LocalDate e_adDate, int e_c_id) {
-		super();
-		this.e_id = e_id;
-		this.e_name = e_name;
-		this.e_adVent = e_adVent;
-		this.e_adDate = e_adDate;
-		this.e_c_id = e_c_id;
+	@Id
+	@GeneratedValue
+	private int eid;
+	private String eventName;
+	@ManyToOne
+	private UserMasterTable creator;
+	@ManyToOne
+	private UserMasterTable approver;
+	private Date advent;
+	private Date addDate;
+	@Enumerated
+	private Category eventCategory;
+	private String description;
+
+	/**
+	 * @return the eid
+	 */
+	public int getEid() {
+		return eid;
 	}
 
-	// Getters and Setters
-	public int getE_id() {
-		return e_id;
+	/**
+	 * @return the eventName
+	 */
+	public String getEventName() {
+		return eventName;
 	}
-
-	public void setE_id(int e_id) {
-		this.e_id = e_id;
+	/**
+	 * @return the creator
+	 */
+	public UserMasterTable getCreator() {
+		return creator;
 	}
-
-	public int getE_name() {
-		return e_name;
+	/**
+	 * @return the approver
+	 */
+	public UserMasterTable getApprover() {
+		return approver;
 	}
-
-	public void setE_name(int e_name) {
-		this.e_name = e_name;
+	/**
+	 * @return the addDate
+	 */
+	public Date getAddDate() {
+		return addDate;
 	}
-
-	public LocalDate getE_adVent() {
-		return e_adVent;
+	/**
+	 * @return the advent
+	 */
+	public Date getAdvent() {
+		return advent;
 	}
-
-	public void setE_adVent(LocalDate e_adVent) {
-		this.e_adVent = e_adVent;
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
 	}
-
-	public LocalDate getE_adDate() {
-		return e_adDate;
-	}
-
-	public void setE_adDate(LocalDate e_adDate) {
-		this.e_adDate = e_adDate;
-	}
-
-	public int getE_c_id() {
-		return e_c_id;
-	}
-
-	public void setE_c_id(int e_c_id) {
-		this.e_c_id = e_c_id;
-	}
-
-	// To string
-	@Override
-	public String toString() {
-		return "Event [e_id=" + e_id + ", e_name=" + e_name + ", e_adVent=" + e_adVent + ", e_adDate=" + e_adDate
-				+ ", e_c_id=" + e_c_id + "]";
+	/**
+	 * @return the eventCategory
+	 */
+	public Category getEventCategory() {
+		return eventCategory;
 	}
 	
 }
