@@ -5,6 +5,7 @@ import java.sql.Date;
 import dev.deathstarreactorcore.beans.UserMasterTable;
 
 public class RawUser implements Raw{
+	public String username;
     public String first;
     public String last;
     public String email;
@@ -18,6 +19,6 @@ public class RawUser implements Raw{
     public int questionNum3;
     @Override
     public UserMasterTable process() {
-        return new UserMasterTable(this.first,this.last,this.email,this.dob,this.password,this.ans1,this.ans2,this.ans3,this.questionNum1,this.questionNum2,this.questionNum3);
+        return new UserMasterTable(this.username, this.first,this.last,this.email,this.dob,this.password,this.ans1,this.ans2,this.ans3,this.questionNum1,this.questionNum2,this.questionNum3);
     }
 }

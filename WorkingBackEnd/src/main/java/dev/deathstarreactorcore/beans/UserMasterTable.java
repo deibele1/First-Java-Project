@@ -14,8 +14,7 @@ import javax.persistence.Id;
 public class UserMasterTable implements Persistant{
     public UserMasterTable(){super();}
     @Id
-    @GeneratedValue
-    private int userNumber;
+	private String username;
     @Embedded
     private BasicUserInfo userInfo;
     private String firstN;
@@ -32,8 +31,9 @@ public class UserMasterTable implements Persistant{
     private UserType userType;
 
     //multistage constructor
-    public UserMasterTable(String first, String last,String email, Date dob, String password, String ans1, String ans2, String ans3, int questionNum1, int questionNum2, int questionNum3) {
-        this.firstN=first;
+    public UserMasterTable(String username, String first, String last,String email, Date dob, String password, String ans1, String ans2, String ans3, int questionNum1, int questionNum2, int questionNum3, int type) {
+        this.username = username;
+    	this.firstN=first;
         this.lastN=last;
         this.email=email;
         this.dob = dob;
@@ -41,6 +41,21 @@ public class UserMasterTable implements Persistant{
         this.password = new Password(password);
         this.security = new QAs(ans1, ans2, ans3, questionNum1, questionNum2, questionNum3);
         this.userType = UserType.User;
+        this.userInfo = new BasicUserInfo(type);
+    }
+    
+    //Overloaded constructor that assumes type is "User"
+    public UserMasterTable(String username, String first, String last,String email, Date dob, String password, String ans1, String ans2, String ans3, int questionNum1, int questionNum2, int questionNum3) {
+        this.username = username;
+    	this.firstN=first;
+        this.lastN=last;
+        this.email=email;
+        this.dob = dob;
+        this.doac = Date.valueOf(LocalDate.now());
+        this.password = new Password(password);
+        this.security = new QAs(ans1, ans2, ans3, questionNum1, questionNum2, questionNum3);
+        this.userType = UserType.User;
+        this.userInfo = new BasicUserInfo(0);
     }
 
     /**
@@ -107,10 +122,10 @@ public class UserMasterTable implements Persistant{
     }
 
     /**
-     * @return the userNumber
+     * @return the username
      */
-    public int getUserNumber() {
-        return userNumber;
+    public String getUsername() {
+        return username;
     }
 
     /**
