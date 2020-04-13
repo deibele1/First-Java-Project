@@ -1,5 +1,7 @@
 package dev.deathstarreactorcore.services;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +24,13 @@ public class UserService implements WebService{
     }
 
     public BasicUserInfo login(String username, String password) {
-        UserMasterTable user = ur.findById(username).get();
-        if(user.getPassword().getCurrent() == password) return user.getUserInfo();
+        try {
+            UserMasterTable user = ur.findById(username).get();
+            if(user.getPassword().getCurrent() == password) return user.getUserInfo();
+        } catch (NoSuchElementException e) {
+        	System.out.println("No such user found");
+            return null;
+        }
         return null;
     }
 

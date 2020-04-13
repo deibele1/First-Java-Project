@@ -7,10 +7,18 @@ import javax.persistence.Enumerated;
 public class BasicUserInfo implements Persistant{
 
 	// Field Variables
-	private String username;
 	@Enumerated
 	private UserType type;
 	private int cs; //credibility score
+	
+	public BasicUserInfo(int uType) {
+		type = UserType.iToUT(uType);
+		cs = 1000;
+	}
+	
+	public BasicUserInfo() {
+		super();
+	}
 
 	/**
 	 * @return the cs
@@ -35,11 +43,5 @@ public class BasicUserInfo implements Persistant{
 	 */
 	public void setType(UserType type) {
 		this.type = type;
-	}
-	/**
-	 * @return the username
-	 */
-	public String getUsername() {
-		return username;
 	}
 }

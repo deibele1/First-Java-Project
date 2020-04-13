@@ -1,7 +1,7 @@
 package dev.deathstarreactorcore.beans;
 
 public enum Question {
-    Maiden("What is your mothers Maiden Name?"),
+    Maiden("What is your mother's maiden name?"),
     Street("On what street did you grow up?"),
     Where("What is the name of your first pet?");
 
