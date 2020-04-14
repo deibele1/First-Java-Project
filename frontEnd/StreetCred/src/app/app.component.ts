@@ -1,6 +1,5 @@
   
-import { Component } from '@angular/core';
-import { LoginComponent } from 'src/app/login/login.component';
+import { Component, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +7,9 @@ import { LoginComponent } from 'src/app/login/login.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  static loggedIn: boolean = false;
+
+  public classReference = AppComponent;
   
-  private loggedIn: boolean = false;
-
-  getLoggedIn() {
-    return LoginComponent.loggedIn;
-  }
-
-  setLoggedIn(value: boolean) {
-    this.loggedIn = value;
-  }
 }

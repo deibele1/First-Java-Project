@@ -1,9 +1,9 @@
-<div id="app-root" *ngIf="!getLoggedIn()">
-    <app-login-component *ngIf="!getLoggedIn()">
+<div id="app-root" *ngIf="!classReference.loggedIn">
+    <app-login-component>
 
     </app-login-component>
 </div>
-<div id="app-root" *ngIf="getLoggedIn()">
+<div id="app-root" *ngIf="classReference.loggedIn">
     <app-home>
 
     </app-home>
