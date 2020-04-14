@@ -1,6 +1,7 @@
 package dev.deathstarreactorcore.services;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,8 @@ public class EventService implements WebService{
     @Autowired
     EventRepository er;
 
-    public Event addEvent(RawEvent event) {
-        return er.save(event.process());
+    public Event addEvent(Event event) {
+        return er.save(event);
     }
     public Event getEvent(Integer id) {
         return er.findById(id).get();
@@ -28,5 +29,4 @@ public class EventService implements WebService{
     public LinkedList<Event> getAllbyCatagor(int cat) {
         return er.findByEventCategory(Category.getById(cat));
     }
-
 }

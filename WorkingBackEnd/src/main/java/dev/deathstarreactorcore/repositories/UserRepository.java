@@ -12,6 +12,9 @@ public interface UserRepository extends CrudRepository<UserMasterTable, String>{
 	// For login
 	public UserMasterTable getUserMasterTableByEmail(String email);
 	
+	// For login
+	public UserMasterTable getUserMasterTableByUsername(String username);
+	
 	// Account Recovery
 	public UserMasterTable getUserMasterTableBySecurity(QAs security);
 }

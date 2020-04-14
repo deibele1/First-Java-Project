@@ -11,11 +11,12 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Event implements Persistant{
-	public Event(UserMasterTable creator, Category cat, Date advent, String description2, String eventName) {
+	public Event(UserMasterTable creator, Category cat, Date advent, String description, String eventName) {
 		this.creator = creator;
 		this.eventCategory = cat;
 		this.advent = advent;
 		this.eventName = eventName;
+		this.description = description;
 	}
 
 	public Event(){super();}

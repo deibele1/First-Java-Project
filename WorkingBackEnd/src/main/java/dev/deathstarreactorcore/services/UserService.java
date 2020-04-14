@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dev.deathstarreactorcore.beans.BasicUserInfo;
 import dev.deathstarreactorcore.beans.UserMasterTable;
+import dev.deathstarreactorcore.beans.auth;
 import dev.deathstarreactorcore.repositories.UserRepository;
 
 @Service
@@ -26,7 +27,7 @@ public class UserService implements WebService{
     public BasicUserInfo login(String username, String password) {
         try {
             UserMasterTable user = ur.findById(username).get();
-            if(user.getPassword().getCurrent() == password) return user.getUserInfo();
+            if(user.getPassword().getCurrent().equals(password)) return user.getUserInfo();
         } catch (NoSuchElementException e) {
         	System.out.println("No such user found");
             return null;

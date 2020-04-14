@@ -12,7 +12,7 @@ import dev.deathstarreactorcore.services.UserService;
 public class RawEvent implements Raw{
 
     @Autowired
-    static UserService us;
+    UserService us;
 
     //rawData
     public String creatorUsername;
@@ -21,10 +21,12 @@ public class RawEvent implements Raw{
     public int categoryNumber;
     public String description;
 
-
 	public Event process() {
-        UserMasterTable creator = us.getUser(creatorUsername);
-        Category cat = Category.getById(categoryNumber);
-		return new Event(creator,cat,advent,description,eventName);
+		
+		UserMasterTable creator = us.getUser(creatorUsername);
+		Category cat = Category.getById(categoryNumber);
+		Event event = new Event(creator, cat, advent, description, eventName);
+		return event;
     }
+
 }

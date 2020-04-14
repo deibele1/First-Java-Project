@@ -18,7 +18,7 @@ public class userController {
 
     @RequestMapping(value="user/login", method=RequestMethod.POST, consumes="application/json")
     public BasicUserInfo login(@RequestBody auth auth) {
-        return us.login(auth.username, auth.password);
+    	return us.login(auth.username, auth.password);
     }
 
     @RequestMapping(value="user/newUser", method=RequestMethod.POST, consumes="application/json")
