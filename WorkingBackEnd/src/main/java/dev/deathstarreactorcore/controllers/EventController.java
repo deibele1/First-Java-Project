@@ -27,9 +27,38 @@ public class EventController {
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET, consumes = "application/json")
-    public LinkedList<Event> add() {
+    public LinkedList<Event> getAllEvents() {
 		
     	return es.findAll();
     }
     
+    @RequestMapping(value = "/30day", method = RequestMethod.GET, consumes = "application/json")
+    public LinkedList<Event> getEventsWithin30Days() {
+    	
+    	LocalDate today = LocalDate.now();
+    	LocalDate future = LocalDate.now();
+    	future = future.plusDays(30);
+    	
+    	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
+    }
+    
+    @RequestMapping(value = "/60day", method = RequestMethod.GET, consumes = "application/json")
+    public LinkedList<Event> getEventsWithin60Days() {
+    	
+    	LocalDate today = LocalDate.now();
+    	LocalDate future = LocalDate.now();
+    	future = future.plusDays(60);
+    	
+    	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
+    }
+    
+    @RequestMapping(value = "/90day", method = RequestMethod.GET, consumes = "application/json")
+    public LinkedList<Event> getEventsWithin90Days() {
+    	
+    	LocalDate today = LocalDate.now();
+    	LocalDate future = LocalDate.now();
+    	future = future.plusDays(90);
+    	
+    	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
+    }
 }

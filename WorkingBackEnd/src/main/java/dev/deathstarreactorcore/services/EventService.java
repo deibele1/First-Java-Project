@@ -36,12 +36,20 @@ public class EventService implements WebService{
     public LinkedList<Event> getAllbyCatagory(int cat) {
         return er.findByEventCategory(Category.getById(cat));
     }
-    public LinkedList<Event> findByAdventLessThan(Date date) {
+    public LinkedList<Event> findByAdventGreaterThan(Date date) {
     	
-    	return er.findByAdventLessThan(date);
+    	return er.findByAdventGreaterThan(date);
     }
     public LinkedList<Event> findAll() {
     	
     	return er.findAll();
+    }
+    public LinkedList<Event> findByAdventLessThan(Date date) {
+    	
+    	return er.findByAdventLessThan(date);
+    }
+    public LinkedList<Event> findByAdventBetween(Date today, Date future) {
+    	
+    	return er.findByAdventBetween(today, future);
     }
 }
