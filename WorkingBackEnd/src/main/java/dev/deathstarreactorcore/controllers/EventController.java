@@ -26,9 +26,10 @@ public class EventController {
         return es.save(evt,username);
     }
     
-    @RequestMapping(value = "/event/all", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/", method = RequestMethod.GET, consumes = "application/json")
     public LinkedList<Event> add() {
 		
     	return es.findAll();
     }
+    
 }
