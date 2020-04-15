@@ -1,5 +1,9 @@
 package dev.deathstarreactorcore.controllers;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.LinkedList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -20,5 +24,11 @@ public class EventController {
     @RequestMapping(value = "/event/add", method = RequestMethod.POST, consumes = "application/json")
     public Event add(@RequestBody RawEvent evt, @RequestHeader(value = "username") String username) {
         return es.save(evt,username);
+    }
+    
+    @RequestMapping(value = "/event/all", method = RequestMethod.POST, consumes = "application/json")
+    public LinkedList<Event> add() {
+		
+    	return es.findAll();
     }
 }

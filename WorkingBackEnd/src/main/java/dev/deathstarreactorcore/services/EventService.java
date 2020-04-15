@@ -1,5 +1,6 @@
 package dev.deathstarreactorcore.services;
 
+import java.sql.Date;
 import java.util.LinkedList;
 
 
@@ -35,5 +36,12 @@ public class EventService implements WebService{
     public LinkedList<Event> getAllbyCatagory(int cat) {
         return er.findByEventCategory(Category.getById(cat));
     }
-
+    public LinkedList<Event> findByAdventLessThan(Date date) {
+    	
+    	return er.findByAdventLessThan(date);
+    }
+    public LinkedList<Event> findAll() {
+    	
+    	return er.findAll();
+    }
 }
