@@ -1,4 +1,7 @@
 export class EventModel {
-    id: number;
-    name: string;
+    creatorUsername: string;
+    advent: string;
+    eventName: string;
+    categoryNumber: number;
+    description: string;
 }
