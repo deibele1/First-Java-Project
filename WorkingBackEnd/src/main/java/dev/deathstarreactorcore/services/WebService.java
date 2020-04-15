@@ -1,5 +1,5 @@
 package dev.deathstarreactorcore.services;
 
-public interface WebService {
 
+public interface WebService {
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dev.deathstarreactorcore.beans.BasicUserInfo;
 import dev.deathstarreactorcore.beans.UserMasterTable;
+import dev.deathstarreactorcore.rawTypes.RawUser;
 import dev.deathstarreactorcore.repositories.UserRepository;
 
 @Service
@@ -15,22 +16,38 @@ public class UserService implements WebService{
     @Autowired
     UserRepository ur;
 
-    public BasicUserInfo save(UserMasterTable user) {
-        return ur.save(user).getUserInfo();
+    public BasicUserInfo save(RawUser user) {
+        return ur.save(user.process()).getUserInfo();
     }
 
-    public UserMasterTable getUser(String username){
+    public UserMasterTable get(String username){
 		return ur.findById(username).get();
     }
 
-    public BasicUserInfo login(String username, String password) {
+    public Boolean authenticate(String username, String password) {
         try {
-            UserMasterTable user = ur.findById(username).get();
-            if(user.getPassword().getCurrent() == password) return user.getUserInfo();
+            System.out.println(ur.findById(username).get().getPassword().getCurrent());
+            if(ur.findById(username).get().getPassword().getCurrent().equals(password)) return true;
+        } catch (NoSuchElementException | IllegalArgumentException e) {
+        	System.out.println("No such user found");
+            return false;
+        }
+        return false;
+    }
+
+    public BasicUserInfo login(String username, String password) {
+        UserMasterTable user;
+        System.out.println(username);
+        System.out.println(password);
+        try {
+            System.out.println(ur.count());
+            user = ur.findByUsernameAndPassword(username,password);
         } catch (NoSuchElementException e) {
         	System.out.println("No such user found");
             return null;
         }
+        System.out.println(user.getPassword().getCurrent().equals(password));
+        if(user.getPassword().getCurrent().equals(password)) return user.getUserInfo();
         return null;
     }
 

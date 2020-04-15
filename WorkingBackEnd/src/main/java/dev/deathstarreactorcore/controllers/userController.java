@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.deathstarreactorcore.beans.BasicUserInfo;
-import dev.deathstarreactorcore.beans.auth;
+import dev.deathstarreactorcore.beans.Auth;
 import dev.deathstarreactorcore.services.UserService;
 
 @RestController
-public class userController {
+public class UserController {
 
     @Autowired
     UserService us;
 
     @RequestMapping(value="user/login", method=RequestMethod.POST, consumes="application/json")
-    public BasicUserInfo login(@RequestBody auth auth) {
+    public BasicUserInfo login(@RequestBody Auth auth) {
         return us.login(auth.username, auth.password);
     }
 
-    @RequestMapping(value="user/newUser", method=RequestMethod.POST, consumes="application/json")
+    @RequestMapping(value="user/add", method=RequestMethod.POST, consumes="application/json")
     public BasicUserInfo requestMethodName(@RequestBody dev.deathstarreactorcore.rawTypes.RawUser user) {
-        return us.save(user.process());
+        return us.save(user);
     }
     
 }

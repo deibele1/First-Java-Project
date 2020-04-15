@@ -14,4 +14,6 @@ public interface UserRepository extends CrudRepository<UserMasterTable, String>{
 	
 	// Account Recovery
 	public UserMasterTable getUserMasterTableBySecurity(QAs security);
+
+	public UserMasterTable findByUsernameAndPassword(String username, String password);
 }

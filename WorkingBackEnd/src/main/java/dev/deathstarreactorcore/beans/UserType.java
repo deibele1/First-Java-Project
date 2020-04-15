@@ -15,6 +15,8 @@ public enum UserType {
 		case 3: return UserType.Admin;
 		default: return null;
 		}
-		
+	}
+	public int UTToI() {
+		return this.ordinal();
 	}
 }

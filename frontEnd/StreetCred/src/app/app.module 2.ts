@@ -19,7 +19,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoginComponent, HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
