@@ -32,7 +32,7 @@ public class EventController {
     	return es.findAll();
     }
     
-    @RequestMapping(value = "/30day", method = RequestMethod.GET, consumes = "application/json")
+    @RequestMapping(value = "/30day", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<Event> getEventsWithin30Days() {
     	
     	LocalDate today = LocalDate.now();
@@ -42,7 +42,7 @@ public class EventController {
     	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
     }
     
-    @RequestMapping(value = "/60day", method = RequestMethod.GET, consumes = "application/json")
+    @RequestMapping(value = "/60day", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<Event> getEventsWithin60Days() {
     	
     	LocalDate today = LocalDate.now();
@@ -52,7 +52,7 @@ public class EventController {
     	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
     }
     
-    @RequestMapping(value = "/90day", method = RequestMethod.GET, consumes = "application/json")
+    @RequestMapping(value = "/90day", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<Event> getEventsWithin90Days() {
     	
     	LocalDate today = LocalDate.now();
