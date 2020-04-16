@@ -34,7 +34,6 @@ public class EventController {
     }
     
     @RequestMapping(value = "/30day", method = RequestMethod.GET, produces = "application/json")
-
     public LinkedList<BasicEventInfo> getEventsWithin30Days() {
 
     	
@@ -46,7 +45,6 @@ public class EventController {
     }
     
     @RequestMapping(value = "/60day", method = RequestMethod.GET, produces = "application/json")
-
     public LinkedList<BasicEventInfo> getEventsWithin60Days() {
 
     	
@@ -58,7 +56,6 @@ public class EventController {
     }
     
     @RequestMapping(value = "/90day", method = RequestMethod.GET, produces = "application/json")
-
     public LinkedList<BasicEventInfo> getEventsWithin90Days() {
 
     	
@@ -67,5 +64,35 @@ public class EventController {
     	future = future.plusDays(90);
     	
     	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
+    }
+    
+    @RequestMapping(value = "/1", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getFirstCategory() {
+    	
+    	return es.getAllbyCatagory(1);
+    }
+    
+    @RequestMapping(value = "/2", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getSecondCategory() {
+    	
+    	return es.getAllbyCatagory(2);
+    }
+    
+    @RequestMapping(value = "/3", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getThirdCategory() {
+    	
+    	return es.getAllbyCatagory(3);
+    }
+    
+    @RequestMapping(value = "/4", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getFourthCategory() {
+    	
+    	return es.getAllbyCatagory(1);
+    }
+    
+    @RequestMapping(value = "/5", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getFifthCategory() {
+    	
+    	return es.getAllbyCatagory(5);
     }
 }

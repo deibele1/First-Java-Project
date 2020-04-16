@@ -18,7 +18,7 @@ public interface EventRepository extends CrudRepository<Event, Integer>{
 
 	LinkedList<Event> findAll(Sort sort);
 
-    LinkedList<Event> findByEventCategory(Category category);
+    LinkedList<Event> findByEventCategory(Category category, Sort sort);
     
     LinkedList<Event> findByAdventLessThan(Date date);
 
