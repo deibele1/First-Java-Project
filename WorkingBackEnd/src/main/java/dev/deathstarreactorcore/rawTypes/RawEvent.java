@@ -21,7 +21,6 @@ public class RawEvent extends Raw{
 
 
 	public Event process(UserMasterTable creator) {
-        Category cat = Category.getById(categoryNumber);
-		return new Event(creator,cat,advent,description,eventName);
+		return new Event(creator,categoryNumber,advent,description,eventName);
     }
 }
