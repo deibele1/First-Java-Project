@@ -1,0 +1,8 @@
+.event-container {
+    border: .1em solid black;
+    width: 100%;
+}
+
+th {
+    text-align: left;
+}

@@ -1,0 +1,22 @@
+<div class="event-container">
+    <table>
+        <thead>
+            <th>Event Date</th>
+            <th>Event Title</th>
+            <th>Details</th>
+            <th>Category</th>
+            <th>Created By</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ event.advent }} </td>
+                <td> {{ event.eventName }} </td>
+                <td> {{ event.description }}</td>
+                <td> {{ event.categoryNumber | category }} </td>
+                <td> {{ event.creatorUsername }} </td>
+                <button (click)="viewMore()">View</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
