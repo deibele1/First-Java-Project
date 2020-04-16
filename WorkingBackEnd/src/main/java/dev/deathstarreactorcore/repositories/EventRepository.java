@@ -20,7 +20,8 @@ public interface EventRepository extends CrudRepository<Event,Integer>{
     
     LinkedList<Event> findByAdventLessThan(Date date);
 
-    LinkedList<Event> findByAddDateGreaterThan(Date date);
-
+    LinkedList<Event> findByAdventGreaterThan(Date date);
+    
+    LinkedList<Event> findByAdventBetween(Date today, Date future);
 
 }

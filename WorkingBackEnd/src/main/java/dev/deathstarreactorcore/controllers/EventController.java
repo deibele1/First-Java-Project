@@ -1,5 +1,9 @@
 package dev.deathstarreactorcore.controllers;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.LinkedList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -20,5 +24,41 @@ public class EventController {
     @RequestMapping(value = "/event/add", method = RequestMethod.POST, consumes = "application/json")
     public Event add(@RequestBody RawEvent evt, @RequestHeader(value = "username") String username) {
         return es.save(evt,username);
+    }
+    
+    @RequestMapping(value = "/", method = RequestMethod.GET, consumes = "application/json")
+    public LinkedList<Event> getAllEvents() {
+		
+    	return es.findAll();
+    }
+    
+    @RequestMapping(value = "/30day", method = RequestMethod.GET, consumes = "application/json")
+    public LinkedList<Event> getEventsWithin30Days() {
+    	
+    	LocalDate today = LocalDate.now();
+    	LocalDate future = LocalDate.now();
+    	future = future.plusDays(30);
+    	
+    	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
+    }
+    
+    @RequestMapping(value = "/60day", method = RequestMethod.GET, consumes = "application/json")
+    public LinkedList<Event> getEventsWithin60Days() {
+    	
+    	LocalDate today = LocalDate.now();
+    	LocalDate future = LocalDate.now();
+    	future = future.plusDays(60);
+    	
+    	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
+    }
+    
+    @RequestMapping(value = "/90day", method = RequestMethod.GET, consumes = "application/json")
+    public LinkedList<Event> getEventsWithin90Days() {
+    	
+    	LocalDate today = LocalDate.now();
+    	LocalDate future = LocalDate.now();
+    	future = future.plusDays(90);
+    	
+    	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
     }
 }
