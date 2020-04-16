@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import dev.deathstarreactorcore.beans.Category;
@@ -50,6 +51,6 @@ public class EventService implements WebService{
     }
     public LinkedList<Event> findByAdventBetween(Date today, Date future) {
     	
-    	return er.findByAdventBetween(today, future);
+    	return er.findByAdventBetween(today, future, Sort.by(Sort.Direction.ASC, "advent"));
     }
 }

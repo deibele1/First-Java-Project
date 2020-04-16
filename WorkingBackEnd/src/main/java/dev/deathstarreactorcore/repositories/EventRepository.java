@@ -3,6 +3,7 @@ package dev.deathstarreactorcore.repositories;
 import java.sql.Date;
 import java.util.LinkedList;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +23,6 @@ public interface EventRepository extends CrudRepository<Event,Integer>{
 
     LinkedList<Event> findByAdventGreaterThan(Date date);
     
-    LinkedList<Event> findByAdventBetween(Date today, Date future);
+    LinkedList<Event> findByAdventBetween(Date today, Date future, Sort sort);
 
 }
