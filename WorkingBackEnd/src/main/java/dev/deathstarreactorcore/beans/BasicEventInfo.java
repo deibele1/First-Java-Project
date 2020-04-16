@@ -8,15 +8,15 @@ import javax.persistence.Enumerated;
 
 public class BasicEventInfo implements Persistant{
 
+	private Date advent;
 	private String eventName;
 	private String description;
-	private Date advent;
 	@Embedded
 	@Enumerated
 	private Category eventCategory;
 	private String username;
 	
-	public BasicEventInfo(String eventName, String description, Date advent, Category eventCategory, String username) {
+	public BasicEventInfo(Date advent, String eventName, String description, Category eventCategory, String username) {
 		
 		this.eventName = eventName;
 		this.description = description;
