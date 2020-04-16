@@ -34,7 +34,9 @@ public class EventController {
     }
     
     @RequestMapping(value = "/30day", method = RequestMethod.GET, produces = "application/json")
+
     public LinkedList<BasicEventInfo> getEventsWithin30Days() {
+
     	
     	LocalDate today = LocalDate.now();
     	LocalDate future = LocalDate.now();
@@ -44,7 +46,9 @@ public class EventController {
     }
     
     @RequestMapping(value = "/60day", method = RequestMethod.GET, produces = "application/json")
+
     public LinkedList<BasicEventInfo> getEventsWithin60Days() {
+
     	
     	LocalDate today = LocalDate.now();
     	LocalDate future = LocalDate.now();
@@ -54,7 +58,9 @@ public class EventController {
     }
     
     @RequestMapping(value = "/90day", method = RequestMethod.GET, produces = "application/json")
+
     public LinkedList<BasicEventInfo> getEventsWithin90Days() {
+
     	
     	LocalDate today = LocalDate.now();
     	LocalDate future = LocalDate.now();
