@@ -18,8 +18,6 @@ public class BasicEventInfo implements Persistant{
 	
 	public BasicEventInfo(String eventName, String description, Date advent, Category eventCategory, String username) {
 		
-		System.out.println(eventCategory);
-		
 		this.eventName = eventName;
 		this.description = description;
 		this.advent = advent;

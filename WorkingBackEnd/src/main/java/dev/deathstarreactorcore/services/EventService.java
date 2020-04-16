@@ -31,9 +31,10 @@ public class EventService implements WebService{
         return new BasicEventInfo(saved.getEventName(), saved.getDescription(), saved.getAdvent(), saved.getEventCategory(), saved.getCreator().getUsername());
     }
 
-    public BasicEventInfo get(Integer id) {
-        Event event = er.findById(id).get();
-        return new BasicEventInfo(event.getEventName(), event.getDescription(), event.getAdvent(), event.getEventCategory(), event.getCreator().getUsername());
+    public Event get(Integer id) {
+//        Event event = er.findById(id).get();
+//        return new BasicEventInfo(event.getEventName(), event.getDescription(), event.getAdvent(), event.getEventCategory(), event.getCreator().getUsername());
+    	return er.findById(id).get();
     }
     public LinkedList<BasicEventInfo> getAll() {
     	
@@ -101,8 +102,6 @@ public class EventService implements WebService{
     	LinkedList<Event> events = er.findByAdventBetween(today, future, Sort.by(Sort.Direction.ASC, "advent"));
     	
     	for(Event e : events) {
-    		
-    		System.out.println(e.getEventCategory().ordinal());
     		
     		eventInfo.add(new BasicEventInfo(e.getEventName(), e.getDescription(), e.getAdvent(), e.getEventCategory(), e.getCreator().getUsername()));
     	}

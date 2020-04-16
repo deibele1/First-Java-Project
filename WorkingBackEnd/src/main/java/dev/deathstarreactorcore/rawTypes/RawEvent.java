@@ -1,3 +1,4 @@
+  
 package dev.deathstarreactorcore.rawTypes;
 
 import java.sql.Date;
@@ -21,6 +22,7 @@ public class RawEvent extends Raw{
 
 
 	public Event process(UserMasterTable creator) {
-		return new Event(creator,categoryNumber,advent,description,eventName);
+        Category cat = Category.getById(categoryNumber);
+		return new Event(creator,cat,advent,description,eventName);
     }
 }

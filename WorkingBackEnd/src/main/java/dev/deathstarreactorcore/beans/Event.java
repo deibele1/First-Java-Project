@@ -2,7 +2,6 @@ package dev.deathstarreactorcore.beans;
 
 import java.sql.Date;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -12,12 +11,11 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Event implements Persistant{
-	public Event(UserMasterTable creator, int cat, Date advent, String description, String eventName) {
+	public Event(UserMasterTable creator, Category cat, Date advent, String description2, String eventName) {
 		this.creator = creator;
+		this.eventCategory = cat;
 		this.advent = advent;
-		this.description = description;
 		this.eventName = eventName;
-		this.eventCategory = Category.getById(cat);
 	}
 
 	public Event(){super();}
@@ -26,17 +24,16 @@ public class Event implements Persistant{
 	@Id
 	@GeneratedValue
 	private int eid;
+	private String eventName;
 	@ManyToOne
 	private UserMasterTable creator;
 	@ManyToOne
 	private UserMasterTable approver;
 	private Date advent;
 	private Date addDate;
-	private String description;
-	private String eventName;
-	@Embedded
 	@Enumerated
 	private Category eventCategory;
+	private String description;
 
 	/**
 	 * @return the eid
@@ -49,18 +46,8 @@ public class Event implements Persistant{
 	 * @return the eventName
 	 */
 	public String getEventName() {
-		
 		return eventName;
 	}
-
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		
-		return description;
-	}
-	
 	/**
 	 * @return the creator
 	 */
@@ -86,9 +73,16 @@ public class Event implements Persistant{
 		return advent;
 	}
 	/**
-	 * @return the cat
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * @return the eventCategory
 	 */
 	public Category getEventCategory() {
 		return eventCategory;
 	}
+	
 }
