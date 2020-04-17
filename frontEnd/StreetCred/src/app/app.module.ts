@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
 import { CategoryPipe } from './pipes/category.pipe';
+import { PredictionComponent } from './prediction/prediction.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CategoryPipe } from './pipes/category.pipe';
     LoginComponent,
     HomeComponent,
     EventComponent,
-    CategoryPipe
+    CategoryPipe,
+    PredictionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,21 @@
 <div class="event-container">
     <table>
         <thead>
-            <th>Event Date</th>
-            <th>Event Title</th>
-            <th>Details</th>
-            <th>Category</th>
-            <th>Created By</th>
+            <th id="advent">Event Date</th>
+            <th id="title">Event Title</th>
+            <th id="details">Details</th>
+            <th id="cat">Category</th>
+            <th id="creator">Created By</th>
             <th></th>
         </thead>
         <tbody>
             <tr>
-                <td> {{ event.advent }} </td>
-                <td> {{ event.eventName }} </td>
-                <td> {{ event.description }}</td>
-                <td> {{ event.categoryNumber | category }} </td>
-                <td> {{ event.creatorUsername }} </td>
-                <button (click)="viewMore()">View</button>
+                <td id="advent"> {{ event.advent }} </td>
+                <td id="title"> {{ event.eventName }} </td>
+                <td id="details"> {{ event.description }}</td>
+                <td id="cat"> {{ event.categoryNumber | category }} </td>
+                <td id="creator"> {{ event.creatorUsername }} </td>
+                <button id="view" (click)="view()"></button>
             </tr>
         </tbody>
     </table>

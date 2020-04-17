@@ -10,6 +10,9 @@ import { AppServices } from '../Services/app-services.service';
 export class HomeComponent implements OnInit {
 
   static username: string;
+  static showPres: boolean = false;
+
+  nums: [number, 3];
 
   public classReference = HomeComponent;
 
@@ -23,24 +26,31 @@ export class HomeComponent implements OnInit {
       eventName: "Ray's Birthday", 
       description: 'Super soft birthday party',
       categoryNumber: 3, 
-      creatorUsername: 'Ray'
+      creatorUsername: 'Ray',
+      id: 1
   },
   {
       advent: '02/15/17', 
       eventName: "Aarons Birthday", 
       description: 'Medium soft birthday party',
       categoryNumber: 3, 
-      creatorUsername: 'Aaron'
+      creatorUsername: 'Aaron',
+      id: 2
   },
   {
       advent: '05/01/18', 
       eventName: "John's Birthday", 
       description: 'Not soft birthday party',
       categoryNumber: 3, 
-      creatorUsername: 'John'
+      creatorUsername: 'John',
+      id: 3
   }
 ];
     //this.appServices.getEvents();
   }
 
+  getPredictions(eventID: number): void {
+    console.log(eventID);
+    
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { EventModel } from '../Models/EventModel';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-event',
@@ -9,9 +10,12 @@ import { EventModel } from '../Models/EventModel';
 export class EventComponent {
 
   @Input() event: EventModel;
+  @Input() home: HomeComponent;
 
   constructor() {}
 
-  viewMore() {}
+  view() {
+    this.home.getPredictions(this.event.id);
+  }
 
 }

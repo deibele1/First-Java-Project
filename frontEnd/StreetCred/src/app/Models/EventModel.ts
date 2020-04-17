@@ -4,4 +4,5 @@ export class EventModel {
     description: string;
     categoryNumber: number;
     creatorUsername: string;
+    id: number;
 }
