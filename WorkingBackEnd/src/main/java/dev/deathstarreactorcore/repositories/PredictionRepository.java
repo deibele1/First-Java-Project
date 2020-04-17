@@ -7,6 +7,7 @@ import dev.deathstarreactorcore.beans.Prediction;
 import dev.deathstarreactorcore.beans.UserMasterTable;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -24,4 +25,8 @@ public interface PredictionRepository extends CrudRepository<Prediction, Integer
 	
 	// Gets all predictions
 	public List<Prediction> findAll();
+
+	
+
+	
 }
