@@ -10,6 +10,7 @@ import { EventComponent } from './event/event.component';
 import { CategoryPipe } from './pipes/category.pipe';
 import { PredictionComponent } from './prediction/prediction.component';
 import { PredictedPipe } from './pipes/predicted.pipe';
+import { AppServices } from './Services/app-services.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { PredictedPipe } from './pipes/predicted.pipe';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginComponent],
+  providers: [LoginComponent,AppServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

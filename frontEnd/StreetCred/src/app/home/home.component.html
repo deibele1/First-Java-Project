@@ -4,5 +4,11 @@
     <div *ngFor="let event of events">
         <app-event class="app-event " [event]="event" [home]="this"></app-event>
     </div>
+    <button (click) = "getEvents()"></button>
+    <div>
+        <ul>
+            <li *ngFor="let event of events$ | async">{{event.eventName}}</li>
+        </ul>
+    </div>
     <ng-container #predictionContainer></ng-container>
 </div>
