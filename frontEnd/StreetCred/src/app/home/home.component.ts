@@ -22,18 +22,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   preds: PredictionModel[] = [{
     predID: 1,
+    predName: "This party will rock!",
     eventID: 1,
     eventName: 'default',
     predDate: '10/12/19',
     predicted: false
     }, {
     predID: 2,
+    predName: "This party will rock!",
     eventID: 1,
     eventName: 'default',
     predDate: '10/12/19',
-    predicted: false
+    predicted: true
     }, {
     predID: 3,
+    predName: "This party will rock!",
     eventID: 2,
     eventName: 'default',
     predDate: '10/12/19',
