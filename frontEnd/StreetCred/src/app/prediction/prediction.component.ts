@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PredictionModel } from '../Models/PredictionModel';
 
 @Component({
   selector: 'app-prediction',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PredictionComponent implements OnInit {
 
-  @Input() num: number;
+  pred: PredictionModel;
 
   constructor() { }
 

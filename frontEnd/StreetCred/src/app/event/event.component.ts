@@ -15,7 +15,7 @@ export class EventComponent {
   constructor() {}
 
   view() {
-    this.home.getPredictions(this.event.id);
+    this.home.getPredictions(this.event);
   }
 
 }
