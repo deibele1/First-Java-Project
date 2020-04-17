@@ -14,18 +14,22 @@ table {
 th,
 td {
     text-align: left;
-    width: 10%
+    width: 10%;
 }
 
-#title {
+td {
+    border: .1em solid black;
+}
+
+.title {
     width: 15%;
 }
 
-#details {
+.details {
     width: 30%;
 }
 
-#view {
+.view {
     background-image: url("../../assets/Eyecon.png");
     background-size: cover;
     width: 3em;

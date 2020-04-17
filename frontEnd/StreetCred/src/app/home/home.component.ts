@@ -15,9 +15,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   static username: string;
   guest: boolean = false;
 
-  catgeory: number = 0;
-
-  nums: Array<number> = [0];
+  category: string;
+  categories: Array<string> = ['All', 'Politics', 'Economics', 
+                              'Sports', 'Environment', 'Technology'];
 
   public classReference = HomeComponent;
 
@@ -53,10 +53,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void { }
 
   ngOnInit(): void {
+    this.category = this.categories[0];
     if (this.classReference.username == "Guest") { this.guest = true; }
-    for (let i = 1; i < 4; i++) {
-      this.nums.push(i);
-    };
     this.getEvents();
   }
 
@@ -66,7 +64,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       advent: '10/12/17', 
       eventName: "Ray's Birthday", 
       description: 'Super soft birthday party',
-      categoryNumber: 3, 
+      category: 'Birthdays', 
       creatorUsername: 'Ray',
       id: 1
     },
@@ -74,7 +72,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       advent: '02/15/17', 
       eventName: "Aarons Birthday", 
       description: 'Medium soft birthday party',
-      categoryNumber: 3, 
+      category: 'Birthdays',
       creatorUsername: 'Aaron',
       id: 2
     },
@@ -82,7 +80,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       advent: '05/01/18', 
       eventName: "John's Birthday", 
       description: 'Not soft birthday party',
-      categoryNumber: 3, 
+      category: 'Birthdays',
       creatorUsername: 'John',
       id: 3
     }
@@ -93,7 +91,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   updateList() {
     this.getEvents();
     for (let event of this.events) {
-      if (event.categoryNumber == this.catgeory) {
+      if (event.category == this.category || this.category == this.categories[0]) {
         this.tempEvents.push(event);
       }
     }
