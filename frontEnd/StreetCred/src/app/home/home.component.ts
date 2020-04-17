@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventModel } from '../Models/EventModel'
 import { AppServices } from '../Services/app-services.service';
+import { PredictionComponent } from '../prediction/prediction.component';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { AppServices } from '../Services/app-services.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild(PredictionComponent) predComp!: PredictionComponent;
 
   static username: string;
   static showPres: boolean = false;
@@ -51,6 +53,6 @@ export class HomeComponent implements OnInit {
 
   getPredictions(eventID: number): void {
     console.log(eventID);
-    
+    this.predComp.num = eventID;
   }
 }
