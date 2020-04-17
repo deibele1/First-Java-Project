@@ -3,6 +3,7 @@ import { EventModel } from '../Models/EventModel'
 import { PredictionModel } from '../Models/PredictionModel'
 import { AppServices } from '../Services/app-services.service';
 import { PredictionComponent } from '../prediction/prediction.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public classReference = HomeComponent;
 
-  events: Array<EventModel> = [];
-  tempEvents: Array<EventModel> = [];
+  events: Observable<EventModel[]>;
 
   preds: PredictionModel[] = [{
     predID: 1,
@@ -58,34 +58,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getEvents();
   }
 
+  ngOnInit(): void {
+  }
+  events$;
   getEvents() {
-    if (this.predCon != undefined) { this.predCon.clear(); }
-    this.events = [ {
-      advent: '10/12/17', 
-      eventName: "Ray's Birthday", 
-      description: 'Super soft birthday party',
-      category: 'Birthdays', 
-      creatorUsername: 'Ray',
-      id: 1
-    },
-    {
-      advent: '02/15/17', 
-      eventName: "Aarons Birthday", 
-      description: 'Medium soft birthday party',
-      category: 'Birthdays',
-      creatorUsername: 'Aaron',
-      id: 2
-    },
-    {
-      advent: '05/01/18', 
-      eventName: "John's Birthday", 
-      description: 'Not soft birthday party',
-      category: 'Birthdays',
-      creatorUsername: 'John',
-      id: 3
-    }
-  ];
-    //this.events = this.appServices.getEvents();
+    this.events$ = this.appServices.getEvents();
   }
 
   updateList() {
