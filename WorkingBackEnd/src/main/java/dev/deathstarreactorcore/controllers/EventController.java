@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import dev.deathstarreactorcore.annotations.AuthenticatedUser;
+import dev.deathstarreactorcore.beans.BasicEventInfo;
 import dev.deathstarreactorcore.beans.Event;
 import dev.deathstarreactorcore.rawTypes.RawEvent;
 import dev.deathstarreactorcore.services.EventService;
@@ -22,18 +23,19 @@ public class EventController {
 
     @AuthenticatedUser
     @RequestMapping(value = "/event/add", method = RequestMethod.POST, consumes = "application/json")
-    public Event add(@RequestBody RawEvent evt, @RequestHeader(value = "username") String username) {
+    public BasicEventInfo add(@RequestBody RawEvent evt, @RequestHeader(value = "username") String username) {
         return es.save(evt,username);
     }
     
-    @RequestMapping(value = "/", method = RequestMethod.GET, consumes = "application/json")
-    public LinkedList<Event> getAllEvents() {
+    @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getAllEvents() {
 		
     	return es.findAll();
     }
     
     @RequestMapping(value = "/30day", method = RequestMethod.GET, produces = "application/json")
-    public LinkedList<Event> getEventsWithin30Days() {
+    public LinkedList<BasicEventInfo> getEventsWithin30Days() {
+
     	
     	LocalDate today = LocalDate.now();
     	LocalDate future = LocalDate.now();
@@ -43,7 +45,8 @@ public class EventController {
     }
     
     @RequestMapping(value = "/60day", method = RequestMethod.GET, produces = "application/json")
-    public LinkedList<Event> getEventsWithin60Days() {
+    public LinkedList<BasicEventInfo> getEventsWithin60Days() {
+
     	
     	LocalDate today = LocalDate.now();
     	LocalDate future = LocalDate.now();
@@ -53,12 +56,43 @@ public class EventController {
     }
     
     @RequestMapping(value = "/90day", method = RequestMethod.GET, produces = "application/json")
-    public LinkedList<Event> getEventsWithin90Days() {
+    public LinkedList<BasicEventInfo> getEventsWithin90Days() {
+
     	
     	LocalDate today = LocalDate.now();
     	LocalDate future = LocalDate.now();
     	future = future.plusDays(90);
     	
     	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
+    }
+    
+    @RequestMapping(value = "/1", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getFirstCategory() {
+    	
+    	return es.getAllbyCatagory(1);
+    }
+    
+    @RequestMapping(value = "/2", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getSecondCategory() {
+    	
+    	return es.getAllbyCatagory(2);
+    }
+    
+    @RequestMapping(value = "/3", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getThirdCategory() {
+    	
+    	return es.getAllbyCatagory(3);
+    }
+    
+    @RequestMapping(value = "/4", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getFourthCategory() {
+    	
+    	return es.getAllbyCatagory(1);
+    }
+    
+    @RequestMapping(value = "/5", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getFifthCategory() {
+    	
+    	return es.getAllbyCatagory(5);
     }
 }
