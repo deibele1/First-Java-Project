@@ -14,8 +14,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild("predictionContainer", {read: ViewContainerRef}) predCon!: ViewContainerRef;
 
   static username: string;
+  guest: boolean = false;
 
-  nums: [1, 2, 3];
+  category: string;
+  categories: Array<string> = ['All', 'Politics', 'Economics', 
+                              'Sports', 'Environment', 'Technology'];
 
   public classReference = HomeComponent;
 
@@ -47,8 +50,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private appServices: AppServices, 
       private componentFactoryResolver: ComponentFactoryResolver) { }
   
-  ngAfterViewInit(): void {
+  ngAfterViewInit(): void { }
 
+  ngOnInit(): void {
+    this.category = this.categories[0];
+    if (this.classReference.username == "Guest") { this.guest = true; }
+    this.getEvents();
   }
 
   ngOnInit(): void {
@@ -56,6 +63,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   events$;
   getEvents() {
     this.events$ = this.appServices.getEvents();
+  }
+
+  updateList() {
+    this.getEvents();
+    for (let event of this.events) {
+      if (event.category == this.category || this.category == this.categories[0]) {
+        this.tempEvents.push(event);
+      }
+    }
+    this.events = this.tempEvents;
   }
 
   getPredictions(event: EventModel): void {

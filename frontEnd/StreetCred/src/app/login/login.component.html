@@ -1,11 +1,33 @@
-<aside>
-    <h2>Welcome to Street Cred!</h2>
-    <h3>Please sign in</h3>
-    <figure>
-        <input name="username" type="text" placeholder="Username" [(ngModel)]="username">
-        <br>
-        <input name="password" type="password" placeholder="Password" [(ngModel)]="password">
-        <br>
-        <button (click)="loginAttempt()">Log In</button>
-    </figure>
-</aside>
+<div class="login-container" *ngIf="!classReference.signup">
+    <aside>
+        <h2>Welcome to Street Cred!</h2>
+        <h3>Please sign in</h3>
+        <figure>
+            <input name="username" type="text" placeholder="Username" [(ngModel)]="username">
+            <br>
+            <input name="password" type="password" placeholder="Password" [(ngModel)]="password">
+            <br>
+            <button (click)="loginAttempt()">Log In</button>
+        </figure>
+    </aside>
+    <button (click)="showSignup()">New User Sign Up</button>
+    <br>
+    <button (click)="guest()">Just Browse</button>
+</div>
+<div class="signup-container" *ngIf="classReference.signup">
+    <aside>
+        <h3>Sign Up Today to start predicting!</h3>
+        <figure>
+            <input name="username" type="text" placeholder="Username" [(ngModel)]="username">
+            <br>
+            <input name="password" type="password" placeholder="Password" [(ngModel)]="password">
+            <br>
+            <input name="password2" type="password2" placeholder="Confirm Password" [(ngModel)]="password2">
+            <br>
+            <button (click)="loginAttempt()">Sign Up</button>
+        </figure>
+    </aside>
+    <button (click)="showSignup()">Sign In</button>
+    <br>
+    <button (click)="guest()">Just Browse</button>
+</div>

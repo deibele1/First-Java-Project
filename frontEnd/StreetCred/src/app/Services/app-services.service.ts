@@ -29,4 +29,10 @@ export class AppServices {
     this.http.get(`${AppServices.serviceURL}user/login`);
     return true;
   }
+
+  signup(): boolean {
+    console.log("Method not implemented.");
+    this.http.get(`${this.serviceURL}user/signup`);
+    return true;
+  }
 }

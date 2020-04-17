@@ -9,13 +9,14 @@ import { HomeComponent } from '../home/home.component';
 })
 export class EventComponent {
 
-  @Input() event: EventModel;
+  @Input() events: EventModel[];
   @Input() home: HomeComponent;
+  @Input() guest: boolean;
 
   constructor() {}
 
-  view() {
-    this.home.getPredictions(this.event);
+  view(event: EventModel) {
+    this.home.getPredictions(event);
   }
 
 }
