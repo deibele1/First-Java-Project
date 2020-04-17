@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
+import { HomeComponent } from '../home/home.component';
+import { AppServices } from '../Services/app-services.service';
 
 @Component({
   selector: 'app-login-component',
@@ -6,19 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  static loggedIn:boolean = false;
 
-  constructor() { }
-  username:string;
-  password:string;
+  username: string;
+  password: string
+
+  constructor(private appServices: AppServices) { }
 
   ngOnInit(): void {
-    console.log("Hello Nerds!!!");
+    
   }
 
-  submit() {
-    console.log(this.username + " " + this.password);
-    LoginComponent.loggedIn = true;
+  loginAttempt(): void {
+    if (this.appServices.loginIn()) {
+      AppComponent.loggedIn = true;
+      HomeComponent.username = this.username;
+    } else {
+      console.log("Need to decide what to do on login failure");
+    }
   }
-
 }

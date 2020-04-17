@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="home-container">
+    <p>Welcome {{ classReference.username }}</p>
+    <select *ngFor="let num of nums; let i = index">
+        <option>{{ (i + 1) | category }}</option>
+    </select>
+    <div *ngFor="let event of events">
+        <app-event class="app-event " [event]="event" [home]="this"></app-event>
+    </div>
+    <div>
+        <app-prediction></app-prediction>
+    </div>
+</div>

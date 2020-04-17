@@ -1,0 +1,33 @@
+.event-container {
+    border: .1em solid black;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+th,
+td {
+    text-align: left;
+    width: 10%
+}
+
+#title {
+    width: 15%;
+}
+
+#details {
+    width: 30%;
+}
+
+#view {
+    background-image: url("../../assets/Eyecon.png");
+    background-size: cover;
+    width: 3em;
+    height: 3em;
+}
