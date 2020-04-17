@@ -28,7 +28,7 @@ public class EventService implements WebService{
     public BasicEventInfo save(RawEvent event,String username) {
         Event saved = er.save(event.process(ur.findById(username).get()));
         
-        return new BasicEventInfo(saved.getAdvent(), saved.getEventName(), saved.getDescription(), saved.getEventCategory(), saved.getCreator().getUsername());
+        return new BasicEventInfo(saved.getAdvent(), saved.getEventName(), saved.getDescription(), saved.getEventCategory(), saved.getCreator().getUsername(), saved.getEid());
     }
 
     public Event get(Integer id) {
@@ -44,7 +44,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername(), e.getEid()));
     	}
     	
         return eventInfo;
@@ -57,7 +57,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
     	}
     	
         return eventInfo;
@@ -69,7 +69,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
     	}
     	
         return eventInfo;
@@ -81,7 +81,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
     	}
     	
         return eventInfo;
@@ -93,7 +93,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
     	}
     	
         return eventInfo;
@@ -105,7 +105,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
     	}
     	
         return eventInfo;

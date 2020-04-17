@@ -15,14 +15,26 @@ public class BasicEventInfo implements Persistant{
 	@Enumerated
 	private Category eventCategory;
 	private String username;
+	private int eventId;
 	
-	public BasicEventInfo(Date advent, String eventName, String description, Category eventCategory, String username) {
+	public int getEventId() {
+		return eventId;
+	}
+
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
+	}
+
+	
+	// new constructor should have event Id field
+	public BasicEventInfo(Date advent, String eventName, String description, Category eventCategory, String username , int eventId) {
 		
 		this.eventName = eventName;
 		this.description = description;
 		this.advent = advent;
 		this.eventCategory = eventCategory;
 		this.username = username;
+		this.eventId = eventId;
 	}
 
 	public BasicEventInfo() {
