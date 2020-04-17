@@ -1,1 +1,18 @@
-<div> ========= {{ pred }} ========= </div>
+<div class="prediction-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Prediction Date</th>
+                <th>Prediction Name</th>
+                <th>Yea or Nea</th>
+            </tr>
+        </thead>
+        <tr>
+            <td> {{ pred.eventName }} </td>
+            <td> {{ pred.predDate }} </td>
+            <td> {{ pred.predName }} </td>
+            <td> {{ pred.predicted | predicted }} </td>
+        </tr>
+    </table>
+</div>

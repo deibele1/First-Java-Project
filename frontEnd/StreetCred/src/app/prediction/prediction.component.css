@@ -1,0 +1,16 @@
+.prediction-container {
+    margin: .5em;
+    border: .1em solid blue;
+}
+
+table {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+th,
+td {
+    text-align: left;
+    width: 10%
+}

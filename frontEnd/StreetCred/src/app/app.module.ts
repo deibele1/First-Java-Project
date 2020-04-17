@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
 import { CategoryPipe } from './pipes/category.pipe';
 import { PredictionComponent } from './prediction/prediction.component';
+import { PredictedPipe } from './pipes/predicted.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PredictionComponent } from './prediction/prediction.component';
     HomeComponent,
     EventComponent,
     CategoryPipe,
-    PredictionComponent
+    PredictionComponent,
+    PredictedPipe
   ],
   imports: [
     BrowserModule,
