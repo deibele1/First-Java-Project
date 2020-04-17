@@ -13,12 +13,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild("predictionContainer", {read: ViewContainerRef}) predCon!: ViewContainerRef;
 
   static username: string;
+  guest: boolean = false;
 
-  nums: [1, 2, 3];
+  catgeory: number = 0;
+
+  nums: Array<number> = [0];
 
   public classReference = HomeComponent;
 
-  events: EventModel[];
+  events: Array<EventModel> = [];
+  tempEvents: Array<EventModel> = [];
 
   preds: PredictionModel[] = [{
     predID: 1,
@@ -46,11 +50,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private appServices: AppServices, 
       private componentFactoryResolver: ComponentFactoryResolver) { }
   
-  ngAfterViewInit(): void {
-
-  }
+  ngAfterViewInit(): void { }
 
   ngOnInit(): void {
+    if (this.classReference.username == "Guest") { this.guest = true; }
+    for (let i = 1; i < 4; i++) {
+      this.nums.push(i);
+    };
+    this.getEvents();
+  }
+
+  getEvents() {
+    if (this.predCon != undefined) { this.predCon.clear(); }
     this.events = [ {
       advent: '10/12/17', 
       eventName: "Ray's Birthday", 
@@ -77,6 +88,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   ];
     //this.events = this.appServices.getEvents();
+  }
+
+  updateList() {
+    this.getEvents();
+    for (let event of this.events) {
+      if (event.categoryNumber == this.catgeory) {
+        this.tempEvents.push(event);
+      }
+    }
+    this.events = this.tempEvents;
   }
 
   getPredictions(event: EventModel): void {

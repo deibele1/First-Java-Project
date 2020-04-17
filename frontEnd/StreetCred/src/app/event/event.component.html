@@ -15,7 +15,7 @@
                 <td id="details"> {{ event.description }}</td>
                 <td id="cat"> {{ event.categoryNumber | category }} </td>
                 <td id="creator"> {{ event.creatorUsername }} </td>
-                <button id="view" (click)="view()"></button>
+                <button id="view" (click)="view()" *ngIf="!guest"></button>
             </tr>
         </tbody>
     </table>

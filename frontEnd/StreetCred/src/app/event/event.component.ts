@@ -11,6 +11,7 @@ export class EventComponent {
 
   @Input() event: EventModel;
   @Input() home: HomeComponent;
+  @Input() guest: boolean;
 
   constructor() {}
 
