@@ -1,0 +1,8 @@
+<div class="app-container">
+    <div *ngIf="!classReference.loggedIn">
+        <app-login-component class="login"></app-login-component>
+    </div>
+    <div *ngIf="classReference.loggedIn">
+        <app-home class="home"></app-home>
+    </div>
+</div>
