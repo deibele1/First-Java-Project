@@ -1,0 +1,9 @@
+<div class="home-container">
+    <p>Welcome {{ classReference.username }}</p>
+    Categories: <select></select>
+    <div *ngFor="let event of events">
+        <app-event class="app-event " [event]="event" [home]="this"></app-event>
+    </div>
+    <app-tabular [uri]="" [columns]="['1st','2nd','3rd','4th','5th']" [title]="'mycomp'" >
+    </app-tabular>
+</div>

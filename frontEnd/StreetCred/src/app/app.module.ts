@@ -11,6 +11,7 @@ import { CategoryPipe } from './pipes/category.pipe';
 import { PredictionComponent } from './prediction/prediction.component';
 import { PredictedPipe } from './pipes/predicted.pipe';
 import { AppServices } from './Services/app-services.service';
+import { TabularComponent } from './tabular/tabular.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppServices } from './Services/app-services.service';
     EventComponent,
     CategoryPipe,
     PredictionComponent,
-    PredictedPipe
+    PredictedPipe,
+    TabularComponent
   ],
   imports: [
     BrowserModule,

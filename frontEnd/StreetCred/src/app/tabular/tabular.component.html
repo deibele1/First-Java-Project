@@ -1,0 +1,13 @@
+<figure class="tabular">
+<table>
+    <caption>{{title}}</caption>
+    <thead>
+        <th *ngFor="let column of columns">{{column}}</th>
+    </thead>
+    <tbody #tbody>
+        <tr *ngFor="let values of data">
+            <td *ngFor="let datum of values | keyvalue">{{datum.value}}</td>
+        </tr>
+    </tbody>
+</table>
+</figure>

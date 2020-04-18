@@ -4,6 +4,7 @@ import { PredictionModel } from '../Models/PredictionModel'
 import { AppServices } from '../Services/app-services.service';
 import { PredictionComponent } from '../prediction/prediction.component';
 import { Observable } from 'rxjs';
+import { TabularComponent } from '../tabular/tabular.component';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild("predictionContainer", {read: ViewContainerRef}) predCon!: ViewContainerRef;
 
   static username: string;
-  guest: boolean = false;
 
-  category: string;
-  categories: Array<string> = ['All', 'Politics', 'Economics', 
-                              'Sports', 'Environment', 'Technology'];
+  nums: [1, 2, 3];
 
   public classReference = HomeComponent;
 
@@ -50,26 +48,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private appServices: AppServices, 
       private componentFactoryResolver: ComponentFactoryResolver) { }
   
-  ngAfterViewInit(): void { }
-
-  ngOnInit(): void {
-    this.category = this.categories[0];
-    if (this.classReference.username == "Guest") { this.guest = true; }
+  ngAfterViewInit(): void {
   }
 
-
-  // updateList() {
-  //   this.getEvents();
-  //   for (let event of this.events) {
-  //     if (event.category == this.category || this.category == this.categories[0]) {
-  //       this.tempEvents.push(event);
-  //     }
-  //   }
-  //   this.events = this.tempEvents;
-  // }
-  // getEvents() {
-  //   throw new Error("Method not implemented.");
-  // }
+  ngOnInit(): void {
+    // this.getEvents()
+  }
+  events$;
+  getEvents() {
+    this.events$ = this.appServices.get("");
+  }
 
   getPredictions(event: EventModel): void {
     // this.preds = this.appServices.getPredictions();

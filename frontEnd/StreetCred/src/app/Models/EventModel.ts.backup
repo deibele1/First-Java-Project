@@ -1,0 +1,12 @@
+import { Tableable } from './Tableable';
+
+export class EventModel extends Tableable{
+    columns = ["Start Date","Event","Description","Type","Created by"];
+    title = "Events"
+    advent: string;
+    eventName: string;
+    description: string;
+    category: string;
+    creatorUsername: string;
+    id: number;
+}
