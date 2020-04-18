@@ -6,10 +6,10 @@
     <div class="event-container">
         <app-event class="app-event" [events]="events" [home]="this" [guest]="guest"></app-event>
     </div>
-    <button (click) = "getEvents()"></button>
+    <button (click)="getEvents()"></button>
     <div>
         <ul>
-            <li *ngFor="let event of events$ | async">{{event.eventName}}</li>
+            <li *ngFor="let event of events">{{event.eventName}}</li>
         </ul>
     </div>
     <ng-container #predictionContainer></ng-container>

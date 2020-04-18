@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public classReference = HomeComponent;
 
-  events: Observable<EventModel[]>;
+  events: Array<EventModel>= [];
+  tempEvents: Array<EventModel> = [];
 
   preds: PredictionModel[] = [{
     predID: 1,
@@ -58,11 +59,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getEvents();
   }
 
-  ngOnInit(): void {
-  }
-  events$;
   getEvents() {
-    this.events$ = this.appServices.getEvents();
+    this.appServices.getEvents().subscribe((data) => {
+      this.events = data;
+    });
   }
 
   updateList() {

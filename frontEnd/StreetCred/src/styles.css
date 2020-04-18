@@ -1,3 +1,9 @@
 html {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.page-container {
+    background-image: url("/src/assets/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
