@@ -4,17 +4,17 @@
             <th class="advent">Event Date</th>
             <th class="title">Event Title</th>
             <th class="details">Details</th>
-            <th class="cat">Category</th>
+            <th class="cat" *ngIf="category=='All'">Category</th>
             <th class="creator">Created By</th>
             <th></th>
         </thead>
         <tbody *ngFor="let event of events">
-            <tr class="row">
+            <tr>
                 <td class="advent"> {{ event.advent }} </td>
                 <td class="title"> {{ event.eventName }} </td>
                 <td class="details"> {{ event.description }}</td>
-                <td class="cat"> {{ event.category }} </td>
-                <td class="creator"> {{ event.creatorUsername }} </td>
+                <td class="cat" *ngIf="category=='All'"> {{ event.eventCategory }} </td>
+                <td class="creator"> {{ event.username }} </td>
                 <button class="view" (click)="view(event)" *ngIf="!guest"></button>
             </tr>
         </tbody>

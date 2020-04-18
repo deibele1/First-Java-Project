@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
-import { CategoryPipe } from './pipes/category.pipe';
 import { PredictionComponent } from './prediction/prediction.component';
 import { PredictedPipe } from './pipes/predicted.pipe';
 import { AppServices } from './Services/app-services.service';
@@ -18,7 +17,6 @@ import { AppServices } from './Services/app-services.service';
     LoginComponent,
     HomeComponent,
     EventComponent,
-    CategoryPipe,
     PredictionComponent,
     PredictedPipe
   ],

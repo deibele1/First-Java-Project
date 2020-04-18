@@ -12,6 +12,7 @@ export class EventComponent {
   @Input() events: EventModel[];
   @Input() home: HomeComponent;
   @Input() guest: boolean;
+  @Input() category: string;
 
   constructor() {}
 

@@ -1,16 +1,12 @@
 <div class="home-container">
     <p>Welcome {{ classReference.username }}</p>
-    Categories: <select [(ngModel)]="category" ng-init="categories[0]" (change)="updateList()">
+    Categories: <select [(ngModel)]="category" ng-init="categories[0]" (change)="getEvents()">
         <option *ngFor="let x of categories" [ngValue]="x">{{ x }}</option>
     </select>
     <div class="event-container">
-        <app-event class="app-event" [events]="events" [home]="this" [guest]="guest"></app-event>
+        <app-event class="app-event" [category]="category" [events]="events" [home]="this" [guest]="guest"></app-event>
     </div>
-    <button (click)="getEvents()"></button>
-    <div>
-        <ul>
-            <li *ngFor="let event of events">{{event.eventName}}</li>
-        </ul>
+    <div class="prediction-container">
+        <app-prediction class="app-prediction" [home]="this" [pred]="pred"></app-prediction>
     </div>
-    <ng-container #predictionContainer></ng-container>
 </div>
