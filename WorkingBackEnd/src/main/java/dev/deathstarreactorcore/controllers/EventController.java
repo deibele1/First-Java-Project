@@ -16,7 +16,9 @@ import dev.deathstarreactorcore.beans.BasicEventInfo;
 import dev.deathstarreactorcore.beans.Event;
 import dev.deathstarreactorcore.rawTypes.RawEvent;
 import dev.deathstarreactorcore.services.EventService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin
 @RestController
 public class EventController {
     @Autowired
@@ -27,7 +29,6 @@ public class EventController {
     public BasicEventInfo add(@RequestBody RawEvent evt, @RequestHeader(value = "username") String username) {
         return es.save(evt,username);
     }
-    
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getAllEvents() {
 		

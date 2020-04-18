@@ -16,7 +16,9 @@ import dev.deathstarreactorcore.rawTypes.RawPrediction;
 import dev.deathstarreactorcore.repositories.UserRepository;
 import dev.deathstarreactorcore.services.PredictionService;
 import dev.deathstarreactorcore.services.UserService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin
 @RestController
 public class PredictionController {
 	

@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.deathstarreactorcore.beans.BasicUserInfo;
 import dev.deathstarreactorcore.beans.Auth;
 import dev.deathstarreactorcore.services.UserService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin
 @RestController
 public class UserController {
 
