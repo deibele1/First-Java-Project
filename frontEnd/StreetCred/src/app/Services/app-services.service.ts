@@ -28,22 +28,8 @@ export class AppServices {
     this.http.get(`${AppServices.serviceURL}user/login`);
     return true;
   }
-  signup(): boolean {
+  signup(user: UserModel): boolean {
     console.log("Ready for testing");
-
-    let user: UserModel = <UserModel> {
-      username: (<HTMLInputElement>document.getElementById("username")).value,
-      first: (<HTMLInputElement>document.getElementById("first")).value,
-      last: (<HTMLInputElement>document.getElementById("last")).value,
-      email: (<HTMLInputElement>document.getElementById("email")).value,
-      password: (<HTMLInputElement>document.getElementById("ans1")).value,
-      ans1: (<HTMLInputElement>document.getElementById("ans1")).value,
-      ans2: (<HTMLInputElement>document.getElementById("ans2")).value,
-      ans3: (<HTMLInputElement>document.getElementById("ans3")).value,
-      questionNum1: Number.parseInt((<HTMLInputElement>document.getElementById("questionNum1")).value),
-      questionNum2: Number.parseInt((<HTMLInputElement>document.getElementById("questionNum2")).value),
-      questionNum3: Number.parseInt((<HTMLInputElement>document.getElementById("questionNum3")).value)
-    }
     this.http.post(`${AppServices.serviceURL}user/singup`, user);
     return true;
   }
