@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+  
+import { Component, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,14 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  static loggedIn: boolean = false;
+
+  public classReference = AppComponent;
   
-  private loggedIn: boolean = false;
-
-  getLoggedIn() {
-    return this.loggedIn;
-  }
-
-  setLoggedIn(value: boolean) {
-    this.loggedIn = value;
-  }
 }
