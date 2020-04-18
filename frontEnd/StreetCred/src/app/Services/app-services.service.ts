@@ -32,7 +32,7 @@ export class AppServices {
 
   signup(): boolean {
     console.log("Method not implemented.");
-    this.http.get(`${this.serviceURL}user/signup`);
+    this.http.get(`${AppServices.serviceURL}user/signup`);
     return true;
   }
 }

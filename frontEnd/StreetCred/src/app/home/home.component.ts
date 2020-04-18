@@ -47,6 +47,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     predicted: false
     }];
 
+    // delcared this to fix a bug. Since I am not working on this part of the functinoality, I do not know
+    // it's purpose or importance. -Ray
+    tempEvents;
+
   constructor(private appServices: AppServices, 
       private componentFactoryResolver: ComponentFactoryResolver) { }
   
@@ -58,8 +62,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getEvents();
   }
 
-  ngOnInit(): void {
-  }
+  
   events$;
   getEvents() {
     this.events$ = this.appServices.getEvents();
@@ -67,7 +70,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   updateList() {
     this.getEvents();
-    for (let event of this.events) {
+    for (let event of this.events$) {
       if (event.category == this.category || this.category == this.categories[0]) {
         this.tempEvents.push(event);
       }
