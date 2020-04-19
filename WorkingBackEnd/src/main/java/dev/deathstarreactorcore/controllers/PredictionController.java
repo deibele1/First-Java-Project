@@ -76,6 +76,14 @@ public class PredictionController {
     	
     }
     
+    @RequestMapping (value="pred/ratio" , method=RequestMethod.GET)
+   public long getUserStats ( @RequestHeader(value = "username") String username)
+   {
+    	
+    	return ps.getRatio(username);
+    	
+    	
+   }
     
-
+ 
 }

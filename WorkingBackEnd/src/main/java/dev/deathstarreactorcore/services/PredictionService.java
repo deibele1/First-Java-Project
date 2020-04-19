@@ -114,18 +114,25 @@ public class PredictionService implements WebService {
 	}
 	
 	
-	public int getRatio(String username)
+	public long getRatio(String username)
 	{
-		long correct;
-		long incorrect;
+		long correct = 0;
+		long incorrect = 0;
 		
-		correct+= pr.countByPredictedAndPredictedEvent_OutcomeAndPredictingUser_Username(true ,true,  username);
+		correct += pr.countByPredictedAndPredictedEvent_OutcomeAndPredictingUser_Username(true ,true,  username);
+		incorrect += pr.countByPredictedAndPredictedEvent_OutcomeAndPredictingUser_Username(true ,false , username);
+		
+		correct += pr.countByPredictedAndPredictedEvent_OutcomeAndPredictingUser_Username(false ,false,  username);
+		incorrect += pr.countByPredictedAndPredictedEvent_OutcomeAndPredictingUser_Username(false ,true , username);
 		
 		
+		long total = correct+incorrect;
 		
-		
-		
-		return 1;
+		if (total == 0)
+		{
+			return 0;
+		}
+		return correct/total;
 	}
 	
 	@Transactional
