@@ -1,0 +1,14 @@
+<figure class="tabular">
+<table>
+    <caption>{{title}}</caption>
+    <thead>
+        <th *ngFor="let column of columns">{{column}}</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let values of data">
+            <td *ngFor="let datum of values | keyvalue" class="datum">{{datum.value}}</td>
+            <td class = "actions"></td>
+        </tr>
+    </tbody>
+</table>
+</figure>

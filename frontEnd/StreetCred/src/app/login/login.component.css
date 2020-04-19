@@ -9,7 +9,7 @@ aside {
 input {
     color: wheat;
     background-color: darkslategray;
-    border-radius: 5px;
+    border-radius: 1vw;
     border: 2px inset gray;
     font-weight: 700;
     transition: ease-in 200ms;
@@ -28,7 +28,7 @@ button {
     background-color: darkred;
     border: outset wheat 2px;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 1vw;
     font-weight: 600;
     width: 160px;
     height: 25px;
@@ -45,14 +45,38 @@ button:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50em;
-    height: 30em;
+    width: 90vw;
+    height: 54vw;
     background-image: url("../../../src/assets/background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    border: 4px antiquewhite outset;
+    border-radius: 3vw;
 }
 
 .error {
     background-color: red;
     font-weight: 900;
 }
+@media only screen and (max-width: 800px) {
+    .login-container,
+    .signup-container {
+        height: 90vw;
+        width: 90vw;
+        background-image: none;
+        background-color: bisque;
+        border: 4px antiquewhite outset;
+        border-radius: 3vw;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .login-container,
+    .signup-container {
+        height: 90vw;
+        width: 90vw;
+        background: none;
+        background-image: none;
+        border: none;
+    }
+  }
