@@ -29,4 +29,8 @@ public interface PredictionRepository extends CrudRepository<Prediction, Integer
 	// Get a count of the yays or nays
 	public Long countByPredictedAndPredictedEvent(boolean predicted, int eid);
 	
+	
+	public void deleteByPredictionId (int PredictionId);
+	
+	
 }

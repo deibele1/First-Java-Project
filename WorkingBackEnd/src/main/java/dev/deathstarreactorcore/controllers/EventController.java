@@ -82,6 +82,27 @@ public class EventController {
     	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
     }
     
+    
+    @RequestMapping (value="event/title={eventTitle}" , method = RequestMethod.GET)
+    public LinkedList<BasicEventInfo> getEventTitle(@PathVariable("eventTitle") String eventTitle) {
+    	System.out.println("This is path varible being put into controller : " + eventTitle);
+    	return es.findByTitle(eventTitle);
+    	
+    	
+    	
+    }
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    
+    
+    
+    
+    
     @RequestMapping(value = "/1", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getFirstCategory() {
     	

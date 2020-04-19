@@ -65,5 +65,17 @@ public class PredictionController {
     	return new PredictionStatistics(ps.getCountByPredictedAndPredictedEvent(true, eid), ps.getCountByPredictedAndPredictedEvent(false, eid));
     }
     
+    @PostMapping (value = "pred/del/{predId}")
+    public void deletePrediction (@PathVariable(value="predId") int predId , @RequestBody dev.deathstarreactorcore.beans.UserMasterTable user)
+    {
+    	
+    	ps.deletePrediction(predId, user);
+    	
+    	
+    	
+    	
+    }
+    
+    
 
 }

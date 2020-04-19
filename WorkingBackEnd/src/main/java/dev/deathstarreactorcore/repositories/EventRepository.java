@@ -26,4 +26,8 @@ public interface EventRepository extends CrudRepository<Event, Integer>{
     
     LinkedList<Event> findByAdventBetween(Date today, Date future, Sort sort);
 
+    LinkedList<Event> findByEventName(String eventTitle);
+    
+    
+    
 }

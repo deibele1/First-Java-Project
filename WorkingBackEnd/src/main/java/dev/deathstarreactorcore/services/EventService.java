@@ -110,4 +110,21 @@ public class EventService implements WebService{
     	
         return eventInfo;
     }
+    
+    public LinkedList <BasicEventInfo> findByTitle(String eventTitle){
+    	
+    	LinkedList<BasicEventInfo> eventInfo = new LinkedList<BasicEventInfo>();
+    	LinkedList<Event> events = er.findByEventName(eventTitle);
+    	System.out.println("This is list of events by name : " + events.toString());
+    	
+    	for(Event e : events) {
+    		
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
+    	}
+    	
+    System.out.println("This is final list being output : " + eventInfo.toString());
+    	return eventInfo;
+    }
+    
+    
 }

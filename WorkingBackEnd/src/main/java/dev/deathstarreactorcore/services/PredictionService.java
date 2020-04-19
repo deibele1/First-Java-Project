@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -97,4 +99,27 @@ public class PredictionService implements WebService {
 		
 		return num.longValue();
 	}
+	
+	@Transactional
+	public void deletePrediction (int predId , UserMasterTable user)
+	{
+		
+	String userName = user.getUsername();
+	System.out.println(userName);
+	
+	Prediction pred =  pr.findById(predId).get();
+	System.out.println("Username of prediction : " + pred.getPredictingUser().getUsername());
+	if (pred.getPredictingUser().getUsername().equals(userName))
+	{
+		System.out.println("Authentication match!");
+		pr.deleteByPredictionId(predId);	
+	} else
+	{
+		System.out.println("Authentication failed. You cant just delete other peoples predictions.");
+		
+	}
+		// end of method
+	}
+	
+	
 }
