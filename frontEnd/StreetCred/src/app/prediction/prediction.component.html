@@ -1,38 +1,51 @@
-
-[Predicitions Component]
-<figure class="prediction-container">
-    <table>
-        <caption>Prediction Statistics</caption>
-        <thead>
-            <tr>
-                <th>Label</th>
-                <th>Statisitic</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Yays</th>
-                <td>{{ pred.yays }}</td>
-            </tr>
-            <tr>
-                <th>Nays</th>
-                <td>{{ pred.nays }}</td>
-            </tr>
-            <tr>
-                <th>Ratio</th>
-                <td>{{ pred.ratio }}</td>
-            </tr>
-        </tbody>
-    </table>
-</figure>
-<nav>
-    <ul>
-        <!-- Clicking reloads predicitons component with new information. -->
-        <li>Descriptions of events with same title</li>
-    </ul>
-</nav>
-<aside>Add Event of same title and date (Form not yet created)</aside>
-<main>
-    <button>Yay</button>
-    <button>Nay</button>
-</main>
+<div *ngIf="pred.nays != null">
+    <figure class="prediction-container">
+        <table>
+            <caption>Prediction Statistics</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Statisitic</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Yays</th>
+                    <td>{{ pred.yays }}</td>
+                </tr>
+                <tr>
+                    <th>Nays</th>
+                    <td>{{ pred.nays }}</td>
+                </tr>
+                <tr>
+                    <th>Ratio</th>
+                    <td>{{ pred.ratio }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <nav>
+        <ul>
+            <!-- Clicking reloads predicitons component with new information. -->
+            <li>Descriptions of events with same title</li>
+        </ul>
+    </nav>
+    <aside>Add Event of same title and date (Form not yet created)</aside>
+    <main>
+        <table>
+            <caption>This Shall Come To Pass!</caption>
+            <thead>
+                <tr>
+                    <th>Yay</th>
+                    <th>Nay</th>
+                </tr>   
+            </thead>
+            <tbody>
+                <tr>
+                    <td><Button>So Say I</Button></td>
+                    <td><button>When Pigs Fly</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</div>

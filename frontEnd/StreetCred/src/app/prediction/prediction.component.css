@@ -14,3 +14,17 @@ td {
     text-align: left;
     width: 10%
 }
+div {
+    background-color: rgba(0, 0, 0, .75);
+    color: antiquewhite;
+}
+
+main table {
+    width: fit-content;
+    margin: auto;
+    background-color:rgba(0, 0, 0, .5);
+}
+main table button {
+    width: 100px;
+    height: 60px;
+}
