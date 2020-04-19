@@ -16,7 +16,7 @@ export class AppServices {
   }
 
   getPredictions(event: EventModel): Observable<PredictionModel> {
-    return this.http.get<PredictionModel>(`${this.serviceURL}`, {responseType: 'json'});
+    return this.http.get<PredictionModel>(`${this.serviceURL}/event/${event.eventId}`, {responseType: 'json'});
   }
 
   loginIn(): boolean {
