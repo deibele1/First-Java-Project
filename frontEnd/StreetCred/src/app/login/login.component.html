@@ -1,4 +1,4 @@
-<div class="login-container" *ngIf="!classReference.signup">
+<div class="login-container" *ngIf="!classReference.signup" (change)="error=''">
     <aside>
         <h2>Welcome to Street Cred!</h2>
         <h3>Please sign in</h3>
@@ -8,13 +8,15 @@
             <input name="password" type="password" placeholder="Password" [(ngModel)]="password">
             <br>
             <button (click)="loginAttempt()">Log In</button>
+            <br>
+            <button (click)="showSignup()">New User Sign Up</button>
+            <br>
+            <button (click)="guest()">Just Browse</button>
         </figure>
+        <div class="error">{{ error }}</div>
     </aside>
-    <button (click)="showSignup()">New User Sign Up</button>
-    <br>
-    <button (click)="guest()">Just Browse</button>
 </div>
-<div class="signup-container" *ngIf="classReference.signup">
+<div class="signup-container" *ngIf="classReference.signup" (change)="error=''">
     <aside>
         <h3>Sign Up Today to start predicting!</h3>
         <figure>
@@ -22,12 +24,22 @@
             <br>
             <input name="password" type="password" placeholder="Password" [(ngModel)]="password">
             <br>
-            <input name="password2" type="password2" placeholder="Confirm Password" [(ngModel)]="password2">
+            <input name="password2" type="password" placeholder="Confirm Password" [(ngModel)]="password2">
             <br>
-            <button (click)="loginAttempt()">Sign Up</button>
+            <input name="first" type="text" placeholder="First Name" [(ngModel)]="first">
+            <br>
+            <input name="last" type="text" placeholder="Last Name" [(ngModel)]="last">
+            <br>
+            <input name="email" type="email" placeholder="User@email.comm" [(ngModel)]="email">
+            <br> DOB <br>
+            <input name="dob" type="date" [(ngModel)]="dob">
+            <br>
+            <button (click)="signup()">Sign Up</button>
+            <br>
+            <button (click)="showSignup()">Sign In</button>
+            <br>
+            <button (click)="guest()">Just Browse</button>
         </figure>
+        <div class="error">{{ error }}</div>
     </aside>
-    <button (click)="showSignup()">Sign In</button>
-    <br>
-    <button (click)="guest()">Just Browse</button>
 </div>
