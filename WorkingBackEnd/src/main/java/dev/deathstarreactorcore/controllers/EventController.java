@@ -6,10 +6,13 @@ import java.util.LinkedList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import dev.deathstarreactorcore.annotations.AuthenticatedUser;
 import dev.deathstarreactorcore.beans.BasicEventInfo;
@@ -34,7 +37,18 @@ public class EventController {
 		
     	return es.findAll();
     }
-    
+    @RequestMapping(value = "/clone/{eventID}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public BasicEventInfo lucy(@RequestParam(value="desc") String desc, @RequestHeader(value = "username") String username, @PathVariable(value = "eventID") int eid) {
+		
+    	Event originalEvent = es.get(eid);
+    	RawEvent evt = new RawEvent();
+    	evt.advent = originalEvent.getAdvent();
+    	evt.categoryNumber = originalEvent.getEventCategory().ordinal();
+    	evt.eventName = originalEvent.getEventName();
+    	evt.description = desc;
+    	return es.save(evt, username);
+    }
     @RequestMapping(value = "/30day", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getEventsWithin30Days() {
 
