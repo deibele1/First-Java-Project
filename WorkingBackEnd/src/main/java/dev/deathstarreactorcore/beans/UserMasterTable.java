@@ -147,5 +147,11 @@ public class UserMasterTable implements Persistant{
     public UserType getUserType() {
         return userType;
     }
+
+	@Override
+	public String toString() {
+		return "UserMasterTable [username=" + username + ", userInfo=" + userInfo + ", firstN=" + firstN + ", userType="
+				+ userType + "]";
+	}
     
 }

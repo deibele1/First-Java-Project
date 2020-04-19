@@ -97,5 +97,12 @@ public class Event implements Persistant{
 	public Category getEventCategory() {
 		return eventCategory;
 	}
+
+	@Override
+	public String toString() {
+		return "Event [eid=" + eid + ", eventName=" + eventName + ", creator=" + creator + ", approver=" + approver
+				+ ", advent=" + advent + ", addDate=" + addDate + ", eventCategory=" + eventCategory + ", description="
+				+ description + ", outcome=" + outcome + "]";
+	}
 	
 }

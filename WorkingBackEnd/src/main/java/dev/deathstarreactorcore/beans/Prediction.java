@@ -31,6 +31,17 @@ public class Prediction implements Persistant{
 	//private String predictingUserName;
 
 	private boolean predicted;
+	
+	// this is final value value to see if prediction is correct or not
+	private Boolean isCorrect;
+
+	public Boolean getIsCorrect() {
+		return isCorrect;
+	}
+
+	public void setIsCorrect(Boolean isCorrect) {
+		this.isCorrect = isCorrect;
+	}
 
 	/**
 	 * @return the dateOfPrediction

@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,6 +89,15 @@ public class EventController {
     	System.out.println("This is path varible being put into controller : " + eventTitle);
     	return es.findByTitle(eventTitle);
     	
+    	
+    	
+    }
+    
+    @PostMapping (value="event/{eventId}/{outcome}")
+    public void setOutcome (@PathVariable("eventId") int eventId , @PathVariable("outcome") boolean outcome )
+    {
+    	System.out.println(outcome);
+      es.setEventOutcome(eventId, outcome);
     	
     	
     }

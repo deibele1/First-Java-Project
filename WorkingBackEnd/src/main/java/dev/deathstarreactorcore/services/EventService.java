@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import dev.deathstarreactorcore.beans.BasicEventInfo;
 import dev.deathstarreactorcore.beans.Category;
 import dev.deathstarreactorcore.beans.Event;
+import dev.deathstarreactorcore.beans.UserMasterTable;
 import dev.deathstarreactorcore.rawTypes.RawEvent;
 import dev.deathstarreactorcore.repositories.EventRepository;
 import dev.deathstarreactorcore.repositories.UserRepository;
@@ -127,6 +128,29 @@ public class EventService implements WebService{
     System.out.println("This is final list being output : " + eventInfo.toString());
     	return eventInfo;
     }
+    
+    
+    public void setEventOutcome ( int eventId , Boolean outcome)
+    {
+    	Event event =  er.findById(eventId).get();
+    	
+    	if (event!=null)
+    	{
+    		System.out.println(event.toString());
+    		event.setOutcome(outcome);
+    		er.save(event);
+    		System.out.println(er.findById(eventId).get().toString());
+    		
+    		
+    		
+    		
+    	}
+    	
+
+    	
+    	
+    }
+    
     
     
 }

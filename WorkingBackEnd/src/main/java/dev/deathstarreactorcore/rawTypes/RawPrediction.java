@@ -28,6 +28,7 @@ public class RawPrediction {
 	public Date dateOfPrediction;
 	public boolean predicted ;
     public int eventId;
+    public Boolean isCorrect;
 	
 	
     
@@ -47,6 +48,16 @@ public class RawPrediction {
     
 	
 	
+	public Boolean getIsCorrect() {
+		return isCorrect;
+	}
+
+
+	public void setIsCorrect(Boolean isCorrect) {
+		this.isCorrect = isCorrect;
+	}
+
+
 	@Override
 	public String toString() {
 		return "RawPrediction [predictionId=" + predictionId + ", eventName=" + eventName + ", predictingUser="
@@ -74,6 +85,8 @@ public class RawPrediction {
 		this.predictingUser = p.getPredictingUser().getUsername();
 		this.dateOfPrediction = p.getDateOfPrediction();
 		this.predicted = p.getPredicted();
+		this.isCorrect = p.getIsCorrect();
+		
 		}
 	
 	
