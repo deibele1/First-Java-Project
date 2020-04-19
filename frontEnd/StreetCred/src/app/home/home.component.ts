@@ -12,7 +12,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild("predictionContainer", {read: ViewContainerRef}) predCon!: ViewContainerRef;
 
   static username: string;
+  private static password: string;
   guest: boolean = false;
+  showNewEvent: boolean = false;
+  eventDate: Date;
+  eventName: string;
+  eventCategory: string;
+  description: string;
 
   category: string;
   categories: Array<string> = ['All', 'Politics', 'Economics', 
@@ -33,6 +39,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.category = this.categories[0];
     if (this.classReference.username == "Guest") { this.guest = true; }
     this.getEvents();
+  }
+
+  static setPassword(password: string) {
+    this.password = password;
+  }
+
+  static getPassword(): string {
+    return this.password;
+  }
+
+  addEvent() {
+    this.showNewEvent = false;
+    this.appServices.addEvent(this.eventDate, this.eventName, this.eventCategory, this.description,
+      HomeComponent.username, HomeComponent.getPassword()).subscribe((data)=>{this.events.push(data)});
   }
 
   getEvents() {

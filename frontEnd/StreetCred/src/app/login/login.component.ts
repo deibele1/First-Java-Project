@@ -32,9 +32,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private appServices: AppServices) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
+
   resetinfo() {
     this.error = '';
     this.username = null;
@@ -66,6 +65,7 @@ export class LoginComponent implements OnInit {
             if (user.type == 'User') {
               AppComponent.loggedIn = true;
               HomeComponent.username = this.username;
+              HomeComponent.setPassword(this.password);
             } else {
               this.error = "There was an error logging in!";
               this.resetinfo();
@@ -82,6 +82,7 @@ export class LoginComponent implements OnInit {
       this.error = "The username cannot be empty!";
     }
   }
+
   signup() {
     this.error = '';
     if (this.username != null) {
@@ -100,6 +101,7 @@ export class LoginComponent implements OnInit {
                         if (user.type == 'User') {
                           AppComponent.loggedIn = true;
                           HomeComponent.username = this.username;
+                          HomeComponent.setPassword(this.password);
                         } else {
                           this.error = "There was an error logging in!";
                           this.resetinfo();

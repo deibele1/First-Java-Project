@@ -5,6 +5,18 @@
             <option *ngFor="let x of categories" [ngValue]="x">{{ x }}</option>
         </select>
     </div>
+    <div><button (click)="showNewEvent = true">New Event</button></div>
+    <div *ngIf="showNewEvent" class="newEvent">
+        <input type="text" placeholder="Event Name" [(ngModel)]="eventName">
+        <br>
+        <input type="text" placeholder="Category" [(ngModel)]="eventCategory">
+        <br>
+        <input type="text" placeholder="Description" [(ngModel)]="description">
+        <br>
+        <input type="date" [(ngModel)]="eventDate">
+        <br>
+        <button (click)="addEvent()">Submit</button>
+    </div>
     <div class="event-container">
         <app-event class="app-event" [category]="category" [events]="events" [home]="this" [guest]="guest"></app-event>
     </div>

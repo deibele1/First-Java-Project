@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EventModel } from '../Models/EventModel';
@@ -31,6 +31,16 @@ export class AppServices {
    let temp = {'username': username, 'password': password, 'first': first, 'last': last,
       'email': email, 'dob': dob.toDateString, 'ans1': 'a', 'ans2': 'a', 'ans3': 'a',
       'questionNum1': 0, 'questionNum2': 0,'questionNum3': 0,}
-    return this.http.post<UserModel>(`${this.serviceURL}user/signup`, temp, {responseType: 'json'});
+    return this.http.post<UserModel>(`${this.serviceURL}user/add`, temp, {responseType: 'json'});
   }
+
+  addEvent(eventDate: Date, eventName: string, eventCategory: string, description: string,
+          username: string, password: string): Observable<EventModel>{
+    let header = new HttpHeaders({'username': username, 'password': password});
+    let temp = {'advent': eventDate.toDateString, 'eventName': eventName, 'eventCategory': 
+              eventCategory, 'description': description};
+    return this.http.post<EventModel>(`${this.serviceURL}event/add`, temp, 
+          {responseType: 'json', headers: header});
+  }
+
 }
