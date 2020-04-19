@@ -19,6 +19,7 @@ public class RawEvent extends Raw{
     public String eventName;
     public int categoryNumber;
     public String description;
+    public Boolean outcome;
 
 	public Event process(UserMasterTable creator) {
         Category cat = Category.getById(categoryNumber);

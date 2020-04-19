@@ -2,6 +2,7 @@ package dev.deathstarreactorcore.beans;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -35,6 +36,17 @@ public class Event implements Persistant{
 	@Enumerated
 	private Category eventCategory;
 	private String description;
+	
+	@Column(nullable = true)
+	private Boolean outcome;
+
+	public Boolean isOutcome() {
+		return outcome;
+	}
+
+	public void setOutcome(boolean outcome) {
+		this.outcome = outcome;
+	}
 
 	/**
 	 * @return the eid

@@ -28,7 +28,7 @@ public class EventService implements WebService{
     public BasicEventInfo save(RawEvent event,String username) {
         Event saved = er.save(event.process(ur.findById(username).get()));
         
-        return new BasicEventInfo(saved.getAdvent(), saved.getEventName(), saved.getDescription(), saved.getEventCategory(), saved.getCreator().getUsername(), saved.getEid());
+        return new BasicEventInfo(saved.getAdvent(), saved.getEventName(), saved.getDescription(), saved.getEventCategory(), saved.getCreator().getUsername(), saved.getEid() ,saved.isOutcome());
     }
 
     public Event get(Integer id) {
@@ -44,8 +44,10 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername(), e.getEid()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername(), e.getEid() ,e.isOutcome()  ));
     	}
+    	
+    	
     	
         return eventInfo;
     }
@@ -57,7 +59,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid() ,e.isOutcome()));
     	}
     	
         return eventInfo;
@@ -69,7 +71,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid(),e.isOutcome()));
     	}
     	
         return eventInfo;
@@ -81,7 +83,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid(),e.isOutcome()));
     	}
     	
         return eventInfo;
@@ -93,7 +95,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid(),e.isOutcome()));
     	}
     	
         return eventInfo;
@@ -105,7 +107,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid(),e.isOutcome()));
     	}
     	
         return eventInfo;
@@ -119,7 +121,7 @@ public class EventService implements WebService{
     	
     	for(Event e : events) {
     		
-    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid()));
+    		eventInfo.add(new BasicEventInfo(e.getAdvent(), e.getEventName(), e.getDescription(), e.getEventCategory(), e.getCreator().getUsername() , e.getEid(),e.isOutcome()));
     	}
     	
     System.out.println("This is final list being output : " + eventInfo.toString());

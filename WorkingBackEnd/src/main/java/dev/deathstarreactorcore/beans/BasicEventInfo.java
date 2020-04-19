@@ -17,6 +17,16 @@ public class BasicEventInfo implements Persistant{
 	private String username;
 	private int eventId;
 	
+	private Boolean outcome;
+	
+	public Boolean getOutcome() {
+		return outcome;
+	}
+
+	public void setOutcome(Boolean outcome) {
+		this.outcome = outcome;
+	}
+
 	public int getEventId() {
 		return eventId;
 	}
@@ -27,7 +37,7 @@ public class BasicEventInfo implements Persistant{
 
 	
 	// new constructor should have event Id field
-	public BasicEventInfo(Date advent, String eventName, String description, Category eventCategory, String username , int eventId) {
+	public BasicEventInfo(Date advent, String eventName, String description, Category eventCategory, String username , int eventId , Boolean outcome) {
 		
 		this.eventName = eventName;
 		this.description = description;
@@ -35,6 +45,7 @@ public class BasicEventInfo implements Persistant{
 		this.eventCategory = eventCategory;
 		this.username = username;
 		this.eventId = eventId;
+		this.outcome = outcome;
 	}
 
 	public BasicEventInfo() {
