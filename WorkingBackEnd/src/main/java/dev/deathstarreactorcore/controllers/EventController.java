@@ -39,7 +39,7 @@ public class EventController {
     }
     @RequestMapping(value = "/clone/{eventID}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public BasicEventInfo lucy(@RequestParam(value="desc") String desc, @RequestHeader(value = "username") String username, @PathVariable(value = "eventID") int eid) {
+    public BasicEventInfo dolly(@RequestParam(value="desc") String desc, @RequestHeader(value = "username") String username, @PathVariable(value = "eventID") int eid) {
 		
     	Event originalEvent = es.get(eid);
     	RawEvent evt = new RawEvent();
