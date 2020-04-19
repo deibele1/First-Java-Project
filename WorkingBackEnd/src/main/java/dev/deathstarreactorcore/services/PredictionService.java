@@ -78,32 +78,23 @@ public class PredictionService implements WebService {
 		
 	}
 	
-public Prediction save (RawPrediction rp  ) {
+	public Prediction save (RawPrediction rp  ) {
 		
 		return pr.save(rp.process());
 		
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+	public long getCountByPredictedAndPredictedEvent(boolean predicted, int eid) {
+		
+		Long num = pr.countByPredictedAndPredictedEvent(predicted, eid);
+
+		if(num == null) {
+			
+			num = (long) 0;
+		}
+		
+		return num.longValue();
+	}
 }

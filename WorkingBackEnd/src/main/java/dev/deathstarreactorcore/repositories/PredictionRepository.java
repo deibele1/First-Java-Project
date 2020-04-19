@@ -26,7 +26,7 @@ public interface PredictionRepository extends CrudRepository<Prediction, Integer
 	// Gets all predictions
 	public List<Prediction> findAll();
 
-	
-
+	// Get a count of the yays or nays
+	public Long countByPredictedAndPredictedEvent(boolean predicted, int eid);
 	
 }

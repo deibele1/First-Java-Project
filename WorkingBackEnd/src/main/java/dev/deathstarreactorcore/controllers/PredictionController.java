@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.deathstarreactorcore.beans.Prediction;
+import dev.deathstarreactorcore.beans.PredictionStatistics;
 import dev.deathstarreactorcore.beans.UserMasterTable;
 import dev.deathstarreactorcore.rawTypes.RawPrediction;
 import dev.deathstarreactorcore.repositories.UserRepository;
@@ -58,7 +59,11 @@ public class PredictionController {
     }
     
     
-    
+    @RequestMapping(value="/event/{eventID}", method = RequestMethod.GET, produces = "application/json")
+    public PredictionStatistics getStats(@PathVariable(value="eventID") int eid) {
+    	
+    	return new PredictionStatistics(ps.getCountByPredictedAndPredictedEvent(true, eid), ps.getCountByPredictedAndPredictedEvent(false, eid));
+    }
     
 
 }
