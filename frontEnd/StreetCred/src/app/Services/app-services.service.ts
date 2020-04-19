@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EventModel } from '../Models/EventModel';
 import { PredictionModel } from '../Models/PredictionModel';
+import { UserModel } from '../Models/UserModel';
 
 @Injectable()
 export class AppServices {
@@ -19,14 +20,17 @@ export class AppServices {
     return this.http.get<PredictionModel>(`${this.serviceURL}/event/${event.eventId}`, {responseType: 'json'});
   }
 
-  loginIn(): boolean {
-    console.log("Method not implemented.");
-    this.http.get(`${this.serviceURL}user/login`);
-    return true;
+  loginIn(username: string, password: string): Observable<UserModel> {
+    let temp = {'username': username, 'password': password}
+    return this.http.post<UserModel>(`${this.serviceURL}user/login`, temp, {responseType: 'json'});
   }
-  signup(): boolean {
-    console.log("Method not implemented.");
-    this.http.get(`${this.serviceURL}user/signup`);
-    return true;
+  
+  signup(username: string, password: string, first: string, last: string, email: string,
+          dob: Date, ans1: string, ans2: string, ans3: string, questionNum1: number,
+          questionNum2: number, questionNum3: number): Observable<UserModel> {
+   let temp = {'username': username, 'password': password, 'first': first, 'last': last,
+      'email': email, 'dob': dob.toDateString, 'ans1': 'a', 'ans2': 'a', 'ans3': 'a',
+      'questionNum1': 0, 'questionNum2': 0,'questionNum3': 0,}
+    return this.http.post<UserModel>(`${this.serviceURL}user/signup`, temp, {responseType: 'json'});
   }
 }

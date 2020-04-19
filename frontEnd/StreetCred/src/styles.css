@@ -2,8 +2,13 @@ html {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.page-container {
-    background-image: url("/src/assets/background.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+    background-color: burlywood;
+    background-image: url('../src/assets/bricks.png');
+    background-repeat: repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

@@ -6,9 +6,11 @@
 }
 
 table {
-    width: 100%;
-    height: auto;
-    margin: auto;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+tbody:nth-child(odd) {
+    background-color: rgba(0, 0, 0, .75)
 }
 
 th,
@@ -17,8 +19,15 @@ td {
     width: 10%;
 }
 
+th {
+    color: gainsboro;
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, .75);
+}
+
 td {
     border: .1em solid black;
+    color: whitesmoke;
 }
 
 .title {
@@ -29,9 +38,18 @@ td {
     width: 30%;
 }
 
+.empty {
+    width: 1%;
+    border: none;
+    background-color: transparent;
+}
+
 .view {
     background-image: url("../../assets/Eyecon.png");
     background-size: cover;
     width: 3em;
     height: 3em;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }

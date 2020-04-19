@@ -1,5 +1,34 @@
 .home-container {
-    width: 100%;
-    height: auto;
     margin: auto;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.welcome {
+    width: 50%;
+    margin: auto;
+    border: .1em solid saddlebrown;
+    font-size: 4vw;
+    background-color: sienna;
+}
+
+.selectors {
+    border: .1em solid rgb(202, 101, 30);
+    background-color: rgb(190, 172, 164);
+    font-size: 2vw;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+select {
+    font-size: 1.8vw;
+}
+
+option {
+    font-size: 2vw;
 }
