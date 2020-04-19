@@ -5,16 +5,18 @@
             <option *ngFor="let x of categories" [ngValue]="x">{{ x }}</option>
         </select>
     </div>
-    <div><button (click)="showNewEvent = true">New Event</button></div>
+    <div *ngIf="!guest"><button (click)="toggleNewEvent()">{{ newEventText }}</button></div>
     <div *ngIf="showNewEvent" class="newEvent">
         <input type="text" placeholder="Event Name" [(ngModel)]="eventName">
-        <br>
-        <input type="text" placeholder="Category" [(ngModel)]="eventCategory">
+        <br> Catgeory: <select [(ngModel)]="eventCategory">
+            <option *ngFor="let y of categories" [ngValue]="y">{{ y }}</option>
+        </select>
         <br>
         <input type="text" placeholder="Description" [(ngModel)]="description">
         <br>
         <input type="date" [(ngModel)]="eventDate">
         <br>
+        <div class="error">{{ error }}</div>
         <button (click)="addEvent()">Submit</button>
     </div>
     <div class="event-container">

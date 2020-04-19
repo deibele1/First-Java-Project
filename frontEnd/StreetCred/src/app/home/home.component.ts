@@ -15,10 +15,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private static password: string;
   guest: boolean = false;
   showNewEvent: boolean = false;
+  newEventText: string;
   eventDate: Date;
   eventName: string;
   eventCategory: string;
   description: string;
+  error: string;
 
   category: string;
   categories: Array<string> = ['All', 'Politics', 'Economics', 
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void { }
 
   ngOnInit(): void {
+    this.newEventText = "New Event";
     this.category = this.categories[0];
     if (this.classReference.username == "Guest") { this.guest = true; }
     this.getEvents();
@@ -49,10 +52,24 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return this.password;
   }
 
+  toggleNewEvent() {
+    if (this.showNewEvent) {
+      this.newEventText = "New Event";
+    } else {
+      this.newEventText = "Cancel";
+    }
+    this.showNewEvent = !this.showNewEvent;
+  }
+
   addEvent() {
-    this.showNewEvent = false;
-    this.appServices.addEvent(this.eventDate, this.eventName, this.eventCategory, this.description,
-      HomeComponent.username, HomeComponent.getPassword()).subscribe((data)=>{this.events.push(data)});
+    let temp = this.categories.indexOf(this.eventCategory);
+    if (temp > 0) {
+      this.toggleNewEvent();
+      this.appServices.addEvent(this.eventDate, this.eventName, temp, this.description,
+            HomeComponent.username, HomeComponent.getPassword()).subscribe((data)=>{this.events.push(data)});
+    } else {
+      this.error = "Select a specific category";
+    }
   }
 
   getEvents() {

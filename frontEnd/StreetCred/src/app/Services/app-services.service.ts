@@ -29,16 +29,16 @@ export class AppServices {
           dob: Date, ans1: string, ans2: string, ans3: string, questionNum1: number,
           questionNum2: number, questionNum3: number): Observable<UserModel> {
    let temp = {'username': username, 'password': password, 'first': first, 'last': last,
-      'email': email, 'dob': dob.toDateString, 'ans1': 'a', 'ans2': 'a', 'ans3': 'a',
+      'email': email, 'dob': dob.toString(), 'ans1': 'a', 'ans2': 'a', 'ans3': 'a',
       'questionNum1': 0, 'questionNum2': 0,'questionNum3': 0,}
     return this.http.post<UserModel>(`${this.serviceURL}user/add`, temp, {responseType: 'json'});
   }
 
-  addEvent(eventDate: Date, eventName: string, eventCategory: string, description: string,
+  addEvent(eventDate: Date, eventName: string, categoryNumber: number, description: string,
           username: string, password: string): Observable<EventModel>{
     let header = new HttpHeaders({'username': username, 'password': password});
-    let temp = {'advent': eventDate.toDateString, 'eventName': eventName, 'eventCategory': 
-              eventCategory, 'description': description};
+    let temp = {'advent': eventDate.toString(), 'eventName': eventName, 'categoryNumber': 
+              categoryNumber, 'description': description};
     return this.http.post<EventModel>(`${this.serviceURL}event/add`, temp, 
           {responseType: 'json', headers: header});
   }

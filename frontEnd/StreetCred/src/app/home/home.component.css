@@ -32,3 +32,11 @@ select {
 option {
     font-size: 2vw;
 }
+
+.newEvent {
+    border: .1em solid black;
+}
+
+.error {
+    background-color: red;
+}
