@@ -28,6 +28,6 @@ public interface EventRepository extends CrudRepository<Event, Integer>{
 
     LinkedList<Event> findByEventName(String eventTitle);
     
-    
+    Event findByeid(int eid);
     
 }

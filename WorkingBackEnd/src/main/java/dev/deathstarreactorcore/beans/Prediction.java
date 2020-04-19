@@ -20,9 +20,9 @@ public class Prediction implements Persistant{
 	private int predictionId;
 	
 	
-	//@ManyToOne
-	@Column (name="PREDICTED_EVENT")
-	private int predictedEvent;
+	@ManyToOne
+	//@Column (name="PREDICTED_EVENT")
+	private Event predictedEvent;
 	
 	@ManyToOne   
 	private UserMasterTable predictingUser;
@@ -55,7 +55,7 @@ public class Prediction implements Persistant{
 	 */
 	
 	
-	public int getPredictedEvent() {
+	public Event getPredictedEvent() {
 		return predictedEvent;
 	}
 
@@ -74,7 +74,7 @@ public class Prediction implements Persistant{
 	}
 	
 	
-public Prediction(UserMasterTable umt, int event, Date date, Boolean predicted) {
+public Prediction(UserMasterTable umt, Event event, Date date, Boolean predicted) {
 		
 	this.predictingUser = umt;
 	this.predictedEvent = event;

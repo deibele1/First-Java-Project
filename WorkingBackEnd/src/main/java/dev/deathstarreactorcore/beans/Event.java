@@ -40,6 +40,7 @@ public class Event implements Persistant{
 	@Column(nullable = true)
 	private Boolean outcome;
 
+	
 	public Boolean isOutcome() {
 		return outcome;
 	}

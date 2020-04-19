@@ -74,15 +74,28 @@ public class PredictionService implements WebService {
 	// this creates new prediction
 	public void addPrediction (RawPrediction rp , String userName ) {
 		
+		
+		
+		
 		pr.save(rp.process(userName));
-		
-		
 		
 	}
 	
-	public Prediction save (RawPrediction rp  ) {
+	public Prediction save (RawPrediction rp , String user ) {
 		
-		return pr.save(rp.process());
+		 
+		 
+	     Event event = er.findByeid(rp.eventId);
+	
+	     System.out.println("This is event I'm trying to predict for : " + event.toString());
+	     
+	     UserMasterTable umt = ur.findByUsername(user);
+	     
+	     Prediction pred = rp.process(event , umt);
+		System.out.println("This is prediction to be saved : " + pred.toString());
+	    pr.save(pred); 
+		
+		return null;
 		
 		
 		
@@ -90,7 +103,7 @@ public class PredictionService implements WebService {
 
 	public long getCountByPredictedAndPredictedEvent(boolean predicted, int eid) {
 		
-		Long num = pr.countByPredictedAndPredictedEvent(predicted, eid);
+		Long num = pr.countByPredictedAndPredictedEvent_Eid(predicted, eid);
 
 		if(num == null) {
 			
@@ -98,6 +111,17 @@ public class PredictionService implements WebService {
 		}
 		
 		return num.longValue();
+	}
+	
+	
+	public int getRatio(String username)
+	{
+		int correct;
+		int incorrect;
+		
+		
+		
+		return 1;
 	}
 	
 	@Transactional

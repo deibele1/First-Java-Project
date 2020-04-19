@@ -6,6 +6,7 @@ import dev.deathstarreactorcore.beans.Event;
 import dev.deathstarreactorcore.beans.Prediction;
 import dev.deathstarreactorcore.beans.UserMasterTable;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public interface PredictionRepository extends CrudRepository<Prediction, Integer
 	public Prediction getPredictionByPredictionId(int PredictionId);
 	
 	// Get the predictions for an event
-	public Prediction getPredictionByPredictedEvent(Event PredictedEvent);
+	public LinkedList<Prediction> getPredictionByPredictedEvent(Event PredictedEvent);
 	
 	// Gets all predictions for a specific user
 	public List<Prediction> getPredictionsByPredictingUser(UserMasterTable predictingUser);
@@ -27,10 +28,18 @@ public interface PredictionRepository extends CrudRepository<Prediction, Integer
 	public List<Prediction> findAll();
 
 	// Get a count of the yays or nays
-	public Long countByPredictedAndPredictedEvent(boolean predicted, int eid);
+	public Long countByPredictedAndPredictedEvent_Eid(boolean predicted, int eid);
+	
+	public Long countByPredictedAndPredictedEvent_OutcomeAndPredictingUser_Username(Boolean a,Boolean b, String username);
 	
 	
 	public void deleteByPredictionId (int PredictionId);
+	
+	
+	
+	
+	
+	
 	
 	
 }

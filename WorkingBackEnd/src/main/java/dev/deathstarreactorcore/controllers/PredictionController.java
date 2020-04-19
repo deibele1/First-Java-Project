@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,14 +49,13 @@ public class PredictionController {
     
     
     @PostMapping (value="pred/add" , consumes="application/json") 
-    public Prediction addPrediction ( @RequestBody dev.deathstarreactorcore.rawTypes.RawPrediction pred ) {
+    public Prediction addPrediction ( @RequestBody dev.deathstarreactorcore.rawTypes.RawPrediction pred ,  @RequestHeader(value = "username") String username ) {
     	
     	System.out.println("Prediction controller Adder triggered");
     	System.out.println("This is input :" + pred.toString() );
     	
-    //	UserMasterTable umt = ur.findById(;
-    	
-    return ps.save(pred);	
+   	
+    return ps.save(pred , username);	
     }
     
     

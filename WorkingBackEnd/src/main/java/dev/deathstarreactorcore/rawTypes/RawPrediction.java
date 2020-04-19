@@ -92,7 +92,7 @@ public class RawPrediction {
 	
 	public Prediction process (String userName) {
 		 UserMasterTable umt = ur.findById(userName).get();
-	     int event = this.eventId;
+	     Event event = er.findById(this.eventId).get();
 	     Date date = Date.valueOf(LocalDate.now());
 	 
 	
@@ -111,9 +111,14 @@ public class RawPrediction {
 	    // Event event = er.findById(this.eventId).get();
 		UserMasterTable umt = new UserMasterTable(this.predictingUser);
 	     Date date = Date.valueOf(LocalDate.now());
+	     
+	     
+	     
+	     
+	     Event event = er.findByeid(this.eventId);
 	
 	
-	     Prediction pred = new Prediction (umt,  this.eventId , date , this.predicted);
+	     Prediction pred = new Prediction (umt,  event , date , this.predicted);
 	     
 	     System.out.println("This is final pred being returned : " +pred.toString());
 		return pred;
@@ -122,6 +127,25 @@ public class RawPrediction {
 	
 	
 	
+	public Prediction process (Event event , UserMasterTable umt)
+	{
+		System.out.println("This is field about to be checked : " + this.predictingUser);
+		System.out.println("And the eventID : " + this.eventId);
+		// UserMasterTable umt = ur.findById(this.predictingUser).get();
+		// System.out.println(umt);
+	    // Event event = er.findById(this.eventId).get();
+	
+	     Date date = Date.valueOf(LocalDate.now());
+	     
+	     
+	     
+	    
+	
+	     Prediction pred = new Prediction (umt,  event , date , this.predicted);
+	     
+	     System.out.println("This is final pred being returned : " +pred.toString());
+		return pred;
+	}
 	
 	
 	

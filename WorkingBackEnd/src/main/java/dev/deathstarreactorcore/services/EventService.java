@@ -2,7 +2,7 @@ package dev.deathstarreactorcore.services;
 
 import java.sql.Date;
 import java.util.LinkedList;
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 import dev.deathstarreactorcore.beans.BasicEventInfo;
 import dev.deathstarreactorcore.beans.Category;
 import dev.deathstarreactorcore.beans.Event;
+import dev.deathstarreactorcore.beans.Prediction;
 import dev.deathstarreactorcore.beans.UserMasterTable;
 import dev.deathstarreactorcore.rawTypes.RawEvent;
 import dev.deathstarreactorcore.repositories.EventRepository;
+import dev.deathstarreactorcore.repositories.PredictionRepository;
 import dev.deathstarreactorcore.repositories.UserRepository;
 
 
@@ -24,6 +26,9 @@ public class EventService implements WebService{
 
     @Autowired
     UserRepository ur;
+    
+    @Autowired
+    PredictionRepository pr;
 
 
     public BasicEventInfo save(RawEvent event,String username) {
@@ -136,10 +141,25 @@ public class EventService implements WebService{
     	
     	if (event!=null)
     	{
+    		// this is to change outcome field
     		System.out.println(event.toString());
     		event.setOutcome(outcome);
     		er.save(event);
     		System.out.println(er.findById(eventId).get().toString());
+    		
+    		//this updates predictions accordingly
+    		
+    		List<Prediction> preds = pr.getPredictionByPredictedEvent(event);
+    		
+    		for (Prediction p : preds)
+    		{
+    			
+    			
+    			
+    			
+    			
+    		}
+    		
     		
     		
     		
