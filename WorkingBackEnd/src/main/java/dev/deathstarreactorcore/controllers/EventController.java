@@ -1,3 +1,4 @@
+
 package dev.deathstarreactorcore.controllers;
 
 import java.sql.Date;
@@ -5,16 +6,24 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import dev.deathstarreactorcore.annotations.AuthenticatedUser;
 import dev.deathstarreactorcore.beans.BasicEventInfo;
+import dev.deathstarreactorcore.beans.Event;
 import dev.deathstarreactorcore.rawTypes.RawEvent;
 import dev.deathstarreactorcore.services.EventService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin
 @RestController
 public class EventController {
     @Autowired
@@ -25,24 +34,34 @@ public class EventController {
     public BasicEventInfo add(@RequestBody RawEvent evt, @RequestHeader(value = "username") String username) {
         return es.save(evt,username);
     }
-    
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getAllEvents() {
+		
+    	return es.findAll();
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getFutureEvents() {
-		return es.findByAdventGreaterThan(Date.valueOf(LocalDate.now()));
+    	return es.findByAdventGreaterThan(Date.valueOf(LocalDate.now()));
     }
 
     @RequestMapping(value = "/past", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getPastEvents() {
-		
-    	return es.passedEvents();
+    	return es.findByAdventLessThan(Date.valueOf(LocalDate.now()));
     }
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = "application/json")
-    public LinkedList<BasicEventInfo> getAllEvents() {
+    @RequestMapping(value = "/clone/{eventID}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public BasicEventInfo dolly(@RequestParam(value="desc") String desc, @RequestHeader(value = "username") String username, @PathVariable(value = "eventID") int eid) {
 		
-    	return es.getAll();
+    	Event originalEvent = es.get(eid);
+    	RawEvent evt = new RawEvent();
+    	evt.advent = originalEvent.getAdvent();
+    	evt.categoryNumber = originalEvent.getEventCategory().ordinal();
+    	evt.eventName = originalEvent.getEventName();
+    	evt.description = desc;
+    	return es.save(evt, username);
     }
-    
     @RequestMapping(value = "/30day", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getEventsWithin30Days() {
 
@@ -75,6 +94,36 @@ public class EventController {
     	
     	return es.findByAdventBetween(Date.valueOf(today), Date.valueOf(future));
     }
+    
+    
+    @RequestMapping (value="event/title={eventTitle}" , method = RequestMethod.GET)
+    public LinkedList<BasicEventInfo> getEventTitle(@PathVariable("eventTitle") String eventTitle) {
+    	System.out.println("This is path varible being put into controller : " + eventTitle);
+    	return es.findByTitle(eventTitle);
+    	
+    	
+    	
+    }
+    
+    @PostMapping (value="event/{eventId}/{outcome}")
+    public void setOutcome (@PathVariable("eventId") int eventId , @PathVariable("outcome") boolean outcome )
+    {
+    	System.out.println(outcome);
+      es.setEventOutcome(eventId, outcome);
+    	
+    	
+    }
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    
+    
+    
+    
     
     @RequestMapping(value = "/1", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getFirstCategory() {
