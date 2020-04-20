@@ -1,4 +1,4 @@
-<div *ngIf="pred.nays != null">
+<div *ngIf="pred != null">
     <figure class="prediction-container">
         <table>
             <caption>Prediction Statistics</caption>
@@ -38,11 +38,13 @@
                 <tr>
                     <th>Yay</th>
                     <th>Nay</th>
-                </tr>   
+                </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><Button>So Say I</Button></td>
+                    <td>
+                        <Button>So Say I</Button>
+                    </td>
                     <td><button>When Pigs Fly</button></td>
                 </tr>
             </tbody>

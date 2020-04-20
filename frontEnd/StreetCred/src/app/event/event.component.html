@@ -1,4 +1,4 @@
-<div class="event-container">
+<div>
     <table>
         <thead>
             <th class="advent">Event Date</th>
@@ -8,6 +8,11 @@
             <th class="creator">Created By</th>
             <th class="empty"></th>
         </thead>
+    </table>
+</div>
+
+<div class="event-container">
+    <table>
         <tbody *ngFor="let event of events">
             <tr>
                 <td class="advent"> {{ event.advent }} </td>

@@ -11,7 +11,8 @@
     margin: auto;
     border: .1em solid saddlebrown;
     font-size: 4vw;
-    background-color: sienna;
+    background-image: url(../../assets/bricks2.png);
+    color: wheat;
 }
 
 .selectors {
@@ -27,8 +28,41 @@
 
 select {
     font-size: 1.8vw;
+    width: 10em;
 }
 
 option {
     font-size: 2vw;
+}
+
+.newEvent {
+    width: 40%;
+    margin: auto;
+    background-image: linear-gradient(to top, red, blue);
+    border: .1em solid black;
+    text-align: left;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.floatBox {
+    width: 25em;
+    height: 1.8em;
+    float: right;
+}
+
+.floatBox2 {
+    float: right;
+}
+
+.thing {
+    height: 2em;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.error {
+    background-color: red;
 }
