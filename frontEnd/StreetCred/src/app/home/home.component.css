@@ -11,7 +11,8 @@
     margin: auto;
     border: .1em solid saddlebrown;
     font-size: 4vw;
-    background-color: sienna;
+    background-image: url(../../assets/bricks2.png);
+    color: wheat;
 }
 
 .selectors {
