@@ -8,10 +8,10 @@ import { AppServices } from '../Services/app-services.service';
   templateUrl: './prediction.component.html',
   styleUrls: ['./prediction.component.css']
 })
-export class PredictionComponent {
+export class PredictionComponent { 
 
   @Input() pred: PredictionModel;
-  @Input() home: HomeComponent;
+  @Input() home: HomeComponent; 
 
   constructor(private apps: AppServices) { }
 

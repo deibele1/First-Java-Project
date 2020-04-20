@@ -6,7 +6,7 @@
         </select>
     </div>
     <div *ngIf="!guest"><button (click)="toggleNewEvent()">{{ newEventText }}</button></div>
-    <div *ngIf="showNewEvent" class="newEvent">
+    <div *ngIf="showNewEvent" class="newEvent">  
         <div class="thing">Event Name: <input class="floatBox" type="text" placeholder="Event Name" [(ngModel)]="eventName"></div>
         <div class="thing">Catgeory: <select class="floatBox2" [(ngModel)]="eventCategory">
             <option *ngFor="let y of categories" [ngValue]="y">{{ y }}</option>

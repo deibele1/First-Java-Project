@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   pred: PredictionModel;
 
-  constructor(private appServices: AppServices, 
+  constructor(private appServices: AppServices,   
       private componentFactoryResolver: ComponentFactoryResolver) { }
   
   predict(outcome: Boolean) {

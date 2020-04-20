@@ -9,7 +9,7 @@ import { HomeComponent } from '../home/home.component';
 @Injectable()
 export class AppServices {
 
-  serviceURL: string = 'http://18.191.179.31:9090/';
+  serviceURL: string = 'http://18.191.179.31:9090/';  
 
   constructor(private http: HttpClient) {}
 
