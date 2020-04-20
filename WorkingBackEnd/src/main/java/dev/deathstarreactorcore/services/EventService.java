@@ -1,6 +1,7 @@
 package dev.deathstarreactorcore.services;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -170,6 +171,11 @@ public class EventService implements WebService{
     	
     	
     }
+
+	public LinkedList<BasicEventInfo> passedEvents(){
+		return findByAdventLessThan(Date.valueOf(LocalDate.now()));
+}
+
     
     
     
