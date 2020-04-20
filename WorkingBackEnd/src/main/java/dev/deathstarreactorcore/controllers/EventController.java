@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import dev.deathstarreactorcore.annotations.AuthenticatedUser;
 import dev.deathstarreactorcore.beans.BasicEventInfo;
-import dev.deathstarreactorcore.beans.Event;
 import dev.deathstarreactorcore.rawTypes.RawEvent;
 import dev.deathstarreactorcore.services.EventService;
 
@@ -28,9 +27,20 @@ public class EventController {
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getFutureEvents() {
+		return es.findByAdventGreaterThan(Date.valueOf(LocalDate.now()));
+    }
+
+    @RequestMapping(value = "/past", method = RequestMethod.GET, produces = "application/json")
+    public LinkedList<BasicEventInfo> getPastEvents() {
+		
+    	return es.passedEvents();
+    }
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = "application/json")
     public LinkedList<BasicEventInfo> getAllEvents() {
 		
-    	return es.findAll();
+    	return es.getAll();
     }
     
     @RequestMapping(value = "/30day", method = RequestMethod.GET, produces = "application/json")
