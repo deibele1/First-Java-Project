@@ -86,6 +86,7 @@ public class RawPrediction {
 		this.dateOfPrediction = p.getDateOfPrediction();
 		this.predicted = p.getPredicted();
 		this.isCorrect = p.getIsCorrect();
+		this.eventId = p.getPredictedEvent().getEid();
 		
 		}
 	
