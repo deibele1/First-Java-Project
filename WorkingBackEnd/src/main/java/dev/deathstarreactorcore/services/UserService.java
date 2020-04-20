@@ -36,17 +36,9 @@ public class UserService implements WebService{
     }
 
     public BasicUserInfo login(String username, String password) {
-        UserMasterTable user;
+        UserMasterTable user = ur.findById(username).get();
         System.out.println(username);
         System.out.println(password);
-        try {
-            System.out.println(ur.count());
-            user = ur.findByUsernameAndPassword(username,password);
-        } catch (NoSuchElementException e) {
-        	System.out.println("No such user found");
-            return null;
-        }
-        System.out.println(user.getPassword().getCurrent().equals(password));
         if(user.getPassword().getCurrent().equals(password)) return user.getUserInfo();
         return null;
     }
