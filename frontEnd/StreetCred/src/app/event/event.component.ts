@@ -17,6 +17,7 @@ export class EventComponent {
   constructor() {}
 
   view(event: EventModel) {
+    HomeComponent.event = event;
     this.home.getPredictions(event);
   }
 

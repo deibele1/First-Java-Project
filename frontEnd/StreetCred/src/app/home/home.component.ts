@@ -9,9 +9,11 @@ import { AppServices } from '../Services/app-services.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+
   @ViewChild("predictionContainer", {read: ViewContainerRef}) predCon!: ViewContainerRef;
 
   static username: string;
+  static event: EventModel;
   private static password: string;
   guest: boolean = false;
   showNewEvent: boolean = false;
@@ -34,6 +36,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(private appServices: AppServices, 
       private componentFactoryResolver: ComponentFactoryResolver) { }
+  
+  predict(outcome: Boolean) {
+    this.appServices.predict(outcome, HomeComponent.event.eventId,HomeComponent.username);
+  }
   
   ngAfterViewInit(): void { }
 

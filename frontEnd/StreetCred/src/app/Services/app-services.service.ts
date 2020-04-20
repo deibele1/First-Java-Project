@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { EventModel } from '../Models/EventModel';
 import { PredictionModel } from '../Models/PredictionModel';
 import { UserModel } from '../Models/UserModel';
+import { HomeComponent } from '../home/home.component';
 
 @Injectable()
 export class AppServices {
@@ -41,6 +42,12 @@ export class AppServices {
               categoryNumber, 'description': description};
     return this.http.post<EventModel>(`${this.serviceURL}event/add`, temp, 
           {responseType: 'json', headers: header});
+  }
+  predict(outcome:Boolean, eventId: number, username: string,) {
+    let header = new HttpHeaders({'username':username});
+    let temp = {'eventId':eventId,'predicted' : outcome};
+    console.log("before Post")
+    this.http.post<string>(`${this.serviceURL}pred/add`,temp,{responseType: 'json', headers: header}).subscribe();
   }
 
 }
