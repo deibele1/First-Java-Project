@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.eventName = null;
     this.eventCategory = null;
     this.description = null;
+    this.error = null;
   }
 
   addEvent() {

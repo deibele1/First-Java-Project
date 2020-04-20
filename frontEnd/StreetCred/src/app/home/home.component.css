@@ -40,15 +40,26 @@ option {
     background-image: linear-gradient(to top, red, blue);
     border: .1em solid black;
     text-align: left;
+    font-size: 2vw;
+    font-weight: bold;
 }
 
 .floatBox {
-    width: 20em;
+    width: 25em;
+    height: 1.8em;
+    float: right;
+}
+
+.floatBox2 {
     float: right;
 }
 
 .thing {
-    height: .25em;
+    height: 2em;
+}
+
+.button-container {
+    text-align: center;
 }
 
 .error {

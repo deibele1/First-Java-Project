@@ -7,18 +7,14 @@
     </div>
     <div *ngIf="!guest"><button (click)="toggleNewEvent()">{{ newEventText }}</button></div>
     <div *ngIf="showNewEvent" class="newEvent">
-        <p class="thing">Event Name: <input class="floatBox" type="text" placeholder="Event Name" [(ngModel)]="eventName"></p>
-        <br>
-        <p class="thing">Catgeory: <select class="floatBox" [(ngModel)]="eventCategory">
+        <div class="thing">Event Name: <input class="floatBox" type="text" placeholder="Event Name" [(ngModel)]="eventName"></div>
+        <div class="thing">Catgeory: <select class="floatBox2" [(ngModel)]="eventCategory">
             <option *ngFor="let y of categories" [ngValue]="y">{{ y }}</option>
-        </select></p>
-        <br>
-        <p class="thing">Description: <input class="floatBox" type="text" placeholder="Description" [(ngModel)]="description"></p>
-        <br>
-        <p class="thing">Event Date: <input class="floatBox" type="date" [(ngModel)]="eventDate"></p>
-        <br>
+        </select></div>
+        <div class="thing">Description: <input class="floatBox" type="text" placeholder="Description" [(ngModel)]="description"></div>
+        <div class="thing">Event Date: <input class="floatBox2" type="date" [(ngModel)]="eventDate"></div>
         <div class="error">{{ error }}</div>
-        <button (click)="addEvent()">Submit</button>
+        <div class="button-container"><button (click)="addEvent()">Submit</button></div>
     </div>
     <div class="event-container">
         <app-event class="app-event" [category]="category" [events]="events" [home]="this" [guest]="guest"></app-event>
